@@ -19,3 +19,48 @@ input:-webkit-autofill,textarea:-webkit-autofill,select:-webkit-autofill{-webkit
 /*  background-color: #0093E9;  For browsers that do not support gradients */
   background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%); /* Standard syntax (must be last) */
 }
+
+/*cerify gall*/
+/*This gall use media queries to re-arrange the images on different screen sizes: for screens larger than 700px wide, it will show four images side by side, 
+for screens smaller than 700px, it will show two images side by side. For screens smaller than 500px, the images will stack vertically (100%) */
+
+div.gallery {
+  border: 1px solid #ccc;
+}
+
+div.gallery:hover {
+  border: 1px solid #777;
+}
+
+div.gallery img {
+  width: 100%;
+  height: auto;
+}
+
+div.desc {
+  padding: 15px;
+  text-align: center;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.responsive {
+  padding: 0 6px;
+  float: left;
+  width: 24.99999%;
+}
+
+@media only screen and (max-width: 700px) {
+  .responsive {
+    width: 49.99999%;
+    margin: 6px 0;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .responsive {
+    width: 100%;
+  }
+}
