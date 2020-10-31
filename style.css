@@ -22,7 +22,7 @@ input:-webkit-autofill,textarea:-webkit-autofill,select:-webkit-autofill{-webkit
 
 /*cerify gall*/
 /*This gall use media queries to re-arrange the images on different screen sizes: for screens larger than 700px wide, it will show four images side by side, 
-for screens smaller than 700px, it will show two images side by side. For screens smaller than 500px, the images will stack vertically (100%) */
+for screens smaller than 700px, it will show two images side by side. For screens smaller than 500px, the images will stack vertically (100% - edited to 50% lst) */
 
 div.gallery {
   border: 1px solid #ccc;
@@ -54,16 +54,16 @@ div.desc {
 
 @media only screen and (max-width: 700px) {
   .responsive {
-    width: 50%;
+    width: 49.99999%;
     margin: 6px 0;
   }
 }
 
-/*@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 500px) {
   .responsive {
     width: 50%;
   }
-}*/
+}
 
 .clearfix:after {
   content: "";
