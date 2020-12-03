@@ -48,7 +48,7 @@ div.desc {
 
 .responsive {
   padding: 0 6px;
-  float: left;
+  float: none;
   width: 18%;
 }
 
