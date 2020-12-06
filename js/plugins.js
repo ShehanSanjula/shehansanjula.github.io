@@ -405,13 +405,13 @@ $(function() {
             hasError = true;
         }
         if($name.val() == '') {
-            $name.parent().append('<span class="error">Please provide Your name.</span>');
+            $name.parent().append('<span class="error">Please provide your Name.</span>');
             $name.addClass('inputError');
             hasError = true;
         }
 
         if($message.val() == '') {
-            $message.parent().append('<span class="error">Please enter details About Project.</span>');
+            $message.parent().append('<span class="error">Please enter details about the Message.</span>');
             $message.addClass('inputError');
             hasError = true;
         }
