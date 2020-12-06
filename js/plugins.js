@@ -416,7 +416,7 @@ $(function() {
             hasError = true;
         }
         if(!hasError) {
-            var url = "shehansanjula66@gmail.com"; 
+            var url = "./php/contact-form.php"; 
             $.ajax({
                type: "POST",
                url: url,
