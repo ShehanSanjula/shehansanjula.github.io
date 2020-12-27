@@ -1,6 +1,14 @@
 <!doctype html>
 <html class="no-js" lang="zxx" dir="ltr">
 <!-- Created and Developed by TechGenius | Shehan Sanjula -->
+<canvas id="snow"></canvas>
+	   <script>(function(){var a=document.getElementById("snow"),c=a.getContext("2d"),e=[];a.style.pointerEvents="none";a.style.position="fixed";
+			       a.style.top=0;a.style.left=0;a.style.width="100vw";a.style.height="100vh";a.height=a.offsetHeight;a.width=a.offsetWidth;
+			       window.onresize=function(){a.height=a.offsetHeight;a.width=a.offsetWidth};var d=Math;setInterval(function(){c.clearRect(0,0,a.width,a.height);
+			       c.beginPath();var f=d.random(),g=.05+.95*f;flake={};flake.x=1.5*a.width*d.random()-.5*a.width;flake.y=-9;flake.b=2*g*(d.random()/2+.5);
+			       flake.c=(4+2*d.random())*g;flake.a=d.pow(5*f,2)/5;flake.update=function(){this.x+=this.b;this.y+=this.c;c.beginPath();
+			       c.arc(this.x,this.y,this.a,0,2*d.PI,!1);c.fillStyle="#FFF";c.fill()};e.push(flake);for(b=0;b<e.length;b++)e[b].y>a.height?e.splice(b,1):e[b].update()},16)})();
+	   </script>
    <head>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-167995367-2"></script>
@@ -24,14 +32,7 @@
       <script src="js/vendor/modernizr-2.8.3.min.js"></script>
    </head>
    <body data-spy="scroll" data-target=".navigation_area">  
-	<canvas id="snow"></canvas>
-	   <script>(function(){var a=document.getElementById("snow"),c=a.getContext("2d"),e=[];a.style.pointerEvents="none";a.style.position="fixed";
-			       a.style.top=0;a.style.left=0;a.style.width="100vw";a.style.height="100vh";a.height=a.offsetHeight;a.width=a.offsetWidth;
-			       window.onresize=function(){a.height=a.offsetHeight;a.width=a.offsetWidth};var d=Math;setInterval(function(){c.clearRect(0,0,a.width,a.height);
-			       c.beginPath();var f=d.random(),g=.05+.95*f;flake={};flake.x=1.5*a.width*d.random()-.5*a.width;flake.y=-9;flake.b=2*g*(d.random()/2+.5);
-			       flake.c=(4+2*d.random())*g;flake.a=d.pow(5*f,2)/5;flake.update=function(){this.x+=this.b;this.y+=this.c;c.beginPath();
-			       c.arc(this.x,this.y,this.a,0,2*d.PI,!1);c.fillStyle="#FFF";c.fill()};e.push(flake);for(b=0;b<e.length;b++)e[b].y>a.height?e.splice(b,1):e[b].update()},16)})();
-	   </script>
+	
 	   
       <div id="preloader">
          <div class="loader_line"></div>
