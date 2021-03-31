@@ -6,3 +6,5 @@ Copyright (c) 2018-2021, Shehan Sanjula
 [![CodeScene general](https://codescene.io/images/analyzed-by-codescene-badge.svg)](https://codescene.io/projects/14487)
 
 [![CodeScene Code Health](https://codescene.io/projects/14487/status-badges/code-health)](https://codescene.io/projects/14487)
+
+[![CodeScene System Mastery](https://codescene.io/projects/14487/status-badges/system-mastery)](https://codescene.io/projects/14487)
