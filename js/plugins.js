@@ -416,7 +416,8 @@ $(function() {
             hasError = true;
         }
         if(!hasError) {
-            var url = "./php/contact-form.php"; 
+            /* var url = "./php/contact-form.php"; */
+	    var url = "https://send.pageclip.co/iaPBR0V2hovpuC7xDxq7Z8qoSOSSLJNA/contact-form";
             $.ajax({
                type: "POST",
                url: url,
