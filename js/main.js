@@ -15,6 +15,12 @@
     zmanApp.stickyHeader(); zmanApp.sectionScroll(); zmanApp.smootScroll(); zmanApp.bg_parallax(); zmanApp.animated_progress(); zmanApp.testimonial(); zmanApp.fan_fact(); zmanApp.grid_masonry(); zmanApp.portfolio_isotop(); zmanApp.magnific_popup(); zmanApp.google_map();}}; 
 /* --------------------------------------------- Document ready function --------------------------------------------- */ $(function(){zmanApp.initializ();});})(jQuery);
 
+<script>
+$(document).ready(function(){
+  $('[data-toggle="tooltip"]').tooltip();   
+});
+</script>
+
 /* Christmas Season 🎄 */ 
 (function(){
     var canvas = document.getElementById("snow");
