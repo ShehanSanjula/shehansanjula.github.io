@@ -16,10 +16,10 @@
 /* --------------------------------------------- Document ready function --------------------------------------------- */ $(function(){zmanApp.initializ();});})(jQuery);
 
  /* --------------------------------------------- Social profile JS--------------------------------------------- */
-$(document).ready(function(){
+/* $(document).ready(function(){
   $('[data-toggle="tooltip"]').tooltip();   
-});
-
+}); 
+*/
 
 /* Christmas Season 🎄 */ 
 (function(){
