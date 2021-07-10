@@ -6,7 +6,7 @@
 ![JavaScript](https://img.shields.io/badge/Language-JavaScript-orange)
 ![CSS](https://img.shields.io/badge/Language-CSS-blue)
 
-## Version
+### Version
 ![](https://img.shields.io/badge/Release-V3.0-informational?style=flat&logo=linux&logoColor=white&color=2bbc8a)
 
 <br/>
