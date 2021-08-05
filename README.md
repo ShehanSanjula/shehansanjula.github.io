@@ -11,7 +11,10 @@
 
 <br/>
 
-[<img align="center" src="https://raw.githubusercontent.com/ShehanSanjula/shehansanjula.github.io/master/images/shehan_logo_1000px.png" width="500" height="527">](https://shehansanjula.github.io/)
+[<img align="center" src="
+https://raw.githubusercontent.com/ShehanSanjula/shehansanjula.github.io/master/images/shehan_logo_1000px.png?token=AJOPMMH3TH4EJLWQD56QL5DBCTNOE" width="500" height="527">](https://shehansanjula.github.io/)
+
+
 
 Copyright (c) 2018-2021, Shehan Sanjula
 <br/> All rights reserved.
