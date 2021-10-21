@@ -2,7 +2,7 @@
     Note: All plugins CSS File Here
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-	@import url("https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.0/css/bootstrap.min.css");
+	@import url("https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.0/css/bootstrap.min.css");
 	/*~~ @import url("plugins/bootstrap.min.css"); ~~*/
 	/*~~ not working @import url("https://cdn.jsdelivr.net/npm/jquery-animated-headlines@1.0.0/dist/css/jquery.animatedheadline.css");  ~~*/
 	@import url("plugins/jquery.animatedheadline.css");
