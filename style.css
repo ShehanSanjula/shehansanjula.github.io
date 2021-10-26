@@ -73,17 +73,5 @@ div.desc {
 }
 
 /* Video | Grid*/
-.flex-parent-element {
-  display: flex;
-  width: 50%;
-}
-
-.flex-child-element {
-  flex: 1;
-  border: 2px solid blueviolet;
-  margin: 10px;
-}
-
-.flex-child-element:first-child {
-  margin-right: 20px;
-}
+#inline-div{width:100%;height:auto;background-color:black;display:flex;} 
+.one,.two{width:50%;height:100px;background-color:green;margin:10px;} 
