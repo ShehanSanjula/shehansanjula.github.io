@@ -73,7 +73,7 @@ div.desc {
 }
 
 /* Christmas Season | Tree-Green 🎄 */
-html, body {
+ <!--  html, body {
   height: 100%;
   width: 100%;
   background: #000;
@@ -87,14 +87,14 @@ body {
   background-size: cover;
   background-position: center;
 }
-
+ -->
 
 .window {
   width: 400px;
   height: 400px;
   background: #000000 /* #a0d5d3; */
   position: absolute;
-  top: 1000%; 
+  top: 230%; 
   left: 50%; 
   border-radius: 50%;
   margin-top: -60px;
