@@ -73,21 +73,21 @@ div.desc {
 }
 
 /* Christmas Season | Tree-Green 🎄 */
- <!--  html, body {
-  height: 100%;
-  width: 100%;
-  background: #000;
-}
+ /* html, body { */
+/*  height: 100%; */
+ /* width: 100%; */
+/*  background: #000; */
+/*}*/
 
-body {
-	padding: 0;
-	margin: 0;
-	background-image: url('https://s27.postimg.org/4qqja3f8j/backgr.jpg');	
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-}
- -->
+/*body {*/
+	/*padding: 0;*/
+	/*margin: 0;*/
+	/*background-image: url('https://s27.postimg.org/4qqja3f8j/backgr.jpg');	*/
+ /* background-repeat: no-repeat;*/
+ /* background-size: cover;*/
+/*  background-position: center;*/
+/*} */
+ 
 
 .window {
   width: 400px;
