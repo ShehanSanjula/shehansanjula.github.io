@@ -94,8 +94,8 @@ body {
   height: 400px;
   background: #000000 /* #a0d5d3; */
   position: absolute;
-  top: 230%; 
-  left: 70%; 
+  top: 100%; 
+  left: 50%; 
   border-radius: 50%;
   margin-top: -60px;
   -webkit-transform: translate(-50%, -50%);
