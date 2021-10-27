@@ -92,7 +92,7 @@ body {
 .window {
   width: 400px;
   height: 400px;
-  background: #a0d5d3;
+  background: #000000 /* #a0d5d3; */
   position: absolute;
   top: 200%; 
   left: 50%; 
