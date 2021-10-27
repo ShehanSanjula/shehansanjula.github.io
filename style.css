@@ -99,12 +99,12 @@ body {
       border-radius: 50vh;
       font-size: 2vw;
     }
-    canvas {
+    Tree-Green {
       opacity: .66;
     }
   }
 }
-canvas {
+Tree-Green {
   width: 100vw;
   height: 100vh;
 }
