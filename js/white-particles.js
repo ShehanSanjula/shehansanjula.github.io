@@ -1,1 +1,58 @@
-<canvas id="snow"></canvas><script>(function(){var a=document.getElementById("snow"),c=a.getContext("2d"),e=[];a.style.pointerEvents="none";a.style.position="fixed";a.style.top=0;a.style.left=0;a.style.width="100vw";a.style.height="100vh";.style.zIndex=1;a.style.userSelect="none";a.height=a.offsetHeight;a.width=a.offsetWidth;window.onresize=function(){a.height=a.offsetHeight;a.width=a.offsetWidth};var d=Math;setInterval(function(){c.clearRect(0,0,a.width,a.height);c.beginPath();var f=d.random(),g=.05+.95*f;flake={};flake.x=1.5*a.width*d.random()-.5*a.width;flake.y=-9;flake.b=2*g*(d.random()/2+.5);flake.c=(4+2*d.random())*g;flake.a=d.pow(5*f,2)/5;flake.update=function(){this.x+=this.b;this.y+=this.c;c.beginPath();c.arc(this.x,this.y,this.a,0,2*d.PI,!1);c.fillStyle="#FFF";c.fill()};e.push(flake);for(b=0;b<e.length;b++)e[b].y>a.height?e.splice(b,1):e[b].update()},16)})();</script>
+/* Christmas Season | Snow 🎄 */ 
+(function(){
+    var canvas = document.getElementById("snow");
+    var ctx = canvas.getContext("2d");
+    var flakeArray = [];
+
+    canvas.style.pointerEvents = "none";
+    canvas.style.position = "fixed";
+    canvas.style.top = 0;
+    canvas.style.left = 0;
+    canvas.style.width = "100vw";
+    canvas.style.height = "100vh";
+    canvas.style.zIndex = 1;
+    canvas.style.userSelect = "none";
+
+    function canvasResize(){
+        canvas.height = canvas.offsetHeight;
+        canvas.width = canvas.offsetWidth;
+    }
+    canvasResize();
+
+    window.onresize = function() {
+        canvasResize();
+    };
+
+    var MyMath = Math;
+
+    setInterval(function() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.beginPath();
+
+        var random = MyMath.random();
+        var distance = .05 + .95 * random;
+
+        flake = {};
+        flake.x = 1.5 * canvas.width * MyMath.random() - .5 * canvas.width;
+        flake.y = -9;
+        flake.velX = 2 * distance * (MyMath.random() / 2 + .5);
+        flake.velY = (4 + 2 * MyMath.random()) * distance;
+        flake.radius = MyMath.pow(5 * random, 2) / 5;
+        flake.update = function() {
+            var t = this;
+            t.x += t.velX;
+            t.y += t.velY;
+            ctx.beginPath();
+            ctx.arc(t.x, t.y, t.radius, 0, 2 * MyMath.PI, !1);
+            ctx.fillStyle = "#FFF";
+            ctx.fill()
+        };
+
+        flakeArray.push(flake);
+
+        for (b = 0; b < flakeArray.length; b++) {
+            flakeArray[b].y > canvas.height ? flakeArray.splice(b, 1) : flakeArray[b].update()
+        }
+    }, 16);
+})();
+/* end of Christmas Season | Snow 🎄 */
