@@ -97,14 +97,14 @@ div.desc {
   /* top: 895%; */
   bottom: -5%;
   left: 87%; 
-  border-radius: 50%;
+  border-radius: 25%;
   /* margin-top: -60px; */
   -webkit-transform: translate(-50%, -50%);
   -moz-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   -o-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  border: 8px solid #f8e7dc;
+  border: 2px solid #f8e7dc;
   overflow: hidden;
 }
 
