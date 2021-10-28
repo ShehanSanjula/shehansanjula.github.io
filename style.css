@@ -96,9 +96,9 @@ div.desc {
   position: absolute;
   top: 110%;
   /* bottom: 10%;  */
-  left: 95%; 
+  left: 87%; 
   border-radius: 50%;
-  margin-top: -60px;
+  /* margin-top: -60px; */
   -webkit-transform: translate(-50%, -50%);
   -moz-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
