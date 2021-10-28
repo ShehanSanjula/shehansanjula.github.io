@@ -90,12 +90,12 @@ div.desc {
  
 
 .window {
-  width: 375px;
-  height: 375px;
+  width: 300px;
+  height: 300px;
   background: #a0d5d3;
   position: absolute;
   /* top: 895%; */
-  bottom: -10%;
+  bottom: -5%;
   left: 87%; 
   border-radius: 50%;
   margin-top: -60px;
@@ -104,7 +104,7 @@ div.desc {
   -ms-transform: translate(-50%, -50%);
   -o-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  border: 10px solid #f8e7dc;
+  border: 8px solid #f8e7dc;
   overflow: hidden;
 }
 
