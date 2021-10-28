@@ -94,8 +94,8 @@ div.desc {
   height: 350px;
   background: #a0d5d3;
   position: absolute;
-  /* top: 895%; */
-  bottom: 10%;
+  top: 120%;
+  /* bottom: 10%;  */
   left: 87%; 
   border-radius: 50%;
   /* margin-top: -60px; */
