@@ -1,8 +1,9 @@
-/*========================Christmas Season | Snow 🎄========================*/ 
+// Christmas Season | Snow 🎄
 (function(){
     var canvas = document.getElementById("snow");
     var ctx = canvas.getContext("2d");
     var flakeArray = [];
+
     canvas.style.pointerEvents = "none";
     canvas.style.position = "fixed";
     canvas.style.top = 0;
@@ -11,6 +12,7 @@
     canvas.style.height = "100vh";
     canvas.style.zIndex = 1;
     canvas.style.userSelect = "none";
+
     function canvasResize(){
         canvas.height = canvas.offsetHeight;
         canvas.width = canvas.offsetWidth;
@@ -20,12 +22,16 @@
     window.onresize = function() {
         canvasResize();
     };
+
     var MyMath = Math;
+
     setInterval(function() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.beginPath();
+
         var random = MyMath.random();
         var distance = .05 + .95 * random;
+
         flake = {};
         flake.x = 1.5 * canvas.width * MyMath.random() - .5 * canvas.width;
         flake.y = -9;
@@ -41,6 +47,7 @@
             ctx.fillStyle = "#FFF";
             ctx.fill()
         };
+
         flakeArray.push(flake);
 
         for (b = 0; b < flakeArray.length; b++) {
@@ -48,4 +55,4 @@
         }
     }, 16);
 })();
-/*========================end of Christmas Season | Snow 🎄========================*/
+// end of Christmas Season | Snow 🎄
