@@ -1,28 +1,15 @@
-Object.defineProperty(window, "console", {
-    value: console,
-    writable: false,
-    configurable: false
-});
+window.oncontextmenu = function () {
+    return false;
+};
 
-var i = 0;
-function showWarningAndThrow() {
-    if (!i) {
-        setTimeout(function () {
-            console.log("%cWarning message", "font: 2em sans-serif; color: yellow; background-color: red;");
-        }, 1);
-        i = 1;
+document.addEventListener("keydown", function(event){
+    var key = event.key || event.keyCode;
+
+    if (key == 123) {
+        return false;
+    } else if ((event.ctrlKey && event.shiftKey && key == 73) || (event.ctrlKey && event.shiftKey && key == 74)) {
+        return false;
     }
-    throw "Warning! You are not authorized to access the developer console of Shehan's website.";
-}
+}, false);
 
-var l, n = {
-        set: function (o) {
-            l = o;
-        },
-        get: function () {
-            showWarningAndThrow();
-            return l;
-        }
-    };
-Object.defineProperty(console, "_commandLineAPI", n);
-Object.defineProperty(console, "__commandLineAPI", n);
+//throw "Warning! You are not authorized to access the developer console of Shehan's website.";
