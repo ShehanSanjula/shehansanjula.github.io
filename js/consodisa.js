@@ -1,18 +1,2 @@
-window.oncontextmenu = function () {
-    console.log("Hello, World!"),
-    return false;
-};
-
-document.addEventListener("keydown", function(event){
-    var key = event.key || event.keyCode;
-
-    if (key == 123) {
-        console.log("Hello, World!"),
-        return false;
-    } else if ((event.ctrlKey && event.shiftKey && key == 73) || (event.ctrlKey && event.shiftKey && key == 74)) {
-        console.log("Hello, World!"),
-        return false;
-    }
-}, false);
-
-//throw "Warning! You are not authorized to access the developer console of Shehan's website.";
+window.oncontextmenu=function(){return!1},document.addEventListener("keydown",(function(e){var n=e.key||e.keyCode;return 123!=n&&(!(e.ctrlKey&&e.shiftKey&&73==n||e.ctrlKey&&e.shiftKey&&74==n)&&void 0)}),!1);
+//"Warning! You are not authorized to input developer console commands for Shehan's website."
