@@ -4,9 +4,6 @@
 # permission.
 User-agent: *
 Sitemap: https://blog.shehansanjula.me/sitemap.xml
-Disallow: /ghost/
-Disallow: /p/
-Disallow: /email/
 User-agent: 01h4x.com
 Disallow:/
 User-agent: 360Spider
