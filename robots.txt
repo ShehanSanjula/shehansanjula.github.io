@@ -3,7 +3,13 @@
 # and may only be conducted for the limited purpose contained in said
 # permission.
 User-agent: *
-Sitemap: https://blog.shehansanjula.me/sitemap.xml
+Sitemap: https://shehansanjula.me/sitemap.xml
+User-agent: Googlebot
+Disallow:
+User-agent: AdsBot-Google
+Disallow:
+User-agent: Googlebot-Image
+Disallow:
 User-agent: 01h4x.com
 Disallow:/
 User-agent: 360Spider
