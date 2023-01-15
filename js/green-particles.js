@@ -36,7 +36,7 @@ SYSTEM = function () {
   var ctx = cnv.getContext('2d');
 
   //year 2019 => 61 points, 2020 => 68 points
-  var yearCoords = ['2', '0', '2', '2'].map(renderCharacter).flatMap((coords, i) => coords.map(coord => [coord[0] - 75 + 50 * i, coord[1] + 135]));
+  var yearCoords = ['2', '0', '2', '3'].map(renderCharacter).flatMap((coords, i) => coords.map(coord => [coord[0] - 75 + 50 * i, coord[1] + 135]));
 
   var Parent = function (childQuant, radius, xPos, yPos) {
     this.radius   = radius;
