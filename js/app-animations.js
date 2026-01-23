@@ -139,7 +139,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // 1. Erabadu Tree (High Quality)
         var tree = document.createElement('img');
-        tree.src = 'images/erabadu_tree.svg?v=2';
+        tree.src = 'images/erabadu_tree.svg?v=4';
         tree.style.position = 'fixed';
         tree.style.bottom = '-20px';
         tree.style.left = '-20px';
@@ -148,17 +148,28 @@ document.addEventListener("DOMContentLoaded", function () {
         tree.id = 'ny-tree';
         container.appendChild(tree);
 
+        // 1.5 Small Plant beneath the tree
+        var smallPlant = document.createElement('img');
+        smallPlant.src = 'images/small_plant.svg?v=4';
+        smallPlant.style.position = 'fixed';
+        smallPlant.style.bottom = '0px';
+        smallPlant.style.left = '60px';
+        smallPlant.style.width = '80px';
+        smallPlant.style.zIndex = '9999';
+        smallPlant.id = 'ny-small-plant';
+        container.appendChild(smallPlant);
+
         // 2. Extra Detailed Flowers (Lush effect)
         var flowerPositions = [
-            { bottom: '5px', left: '40px', width: '75px', rotate: '-5deg', zIndex: '9999' },   // Stuck at base
-            { bottom: '10px', left: '150px', width: '70px', rotate: '15deg', zIndex: '9999' },  // Stuck at base
+            { bottom: '30px', left: '75px', width: '50px', rotate: '-10deg', zIndex: '10001' },  // Blooming from small plant top
+            { bottom: '10px', left: '40px', width: '55px', rotate: '5deg', zIndex: '10001' },   // Blooming from small plant left
             { bottom: '250px', left: '240px', width: '85px', rotate: '-10deg', zIndex: '9999' }, // Blooming from high branch
             { bottom: '120px', left: '30px', width: '65px', rotate: '-20deg', zIndex: '10001' } // Coming from mid branch
         ];
 
         flowerPositions.forEach(function (pos, index) {
             var f = document.createElement('img');
-            f.src = 'images/erabadu.svg?v=3';
+            f.src = 'images/erabadu.svg?v=4';
             f.style.position = 'fixed';
             f.style.bottom = pos.bottom;
             f.style.left = pos.left;
@@ -171,7 +182,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // 3. Koha (Asian Koel)
         var bird = document.createElement('img');
-        bird.src = 'images/koha.svg?v=3';
+        bird.src = 'images/koha.svg?v=4';
         bird.style.position = 'fixed';
         // Positioned on the main branch
         bird.style.bottom = '160px';

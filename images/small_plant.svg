@@ -1,0 +1,16 @@
+<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="stemGradSmall" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#4CAF50" />
+      <stop offset="100%" stop-color="#2E7D32" />
+    </linearGradient>
+  </defs>
+  <!-- Small Stem -->
+  <path d="M50,100 Q55,70 50,40" stroke="url(#stemGradSmall)" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <path d="M50,80 Q30,60 20,65" stroke="url(#stemGradSmall)" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M50,70 Q70,50 80,55" stroke="url(#stemGradSmall)" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <!-- Leaves -->
+  <path d="M50,40 Q30,20 50,10 Q70,20 50,40 Z" fill="#4CAF50"/>
+  <path d="M20,65 Q0,45 20,35 Q40,45 20,65 Z" fill="#4CAF50"/>
+  <path d="M80,55 Q100,35 80,25 Q60,35 80,55 Z" fill="#4CAF50"/>
+</svg>
