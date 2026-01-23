@@ -254,37 +254,40 @@ document.addEventListener("DOMContentLoaded", function () {
         var container = document.createElement('div');
         container.id = 'vesak-deco';
 
-        // 1. Vesak Light String (Top Wire) - STRETCHED TO FULL WIDTH
+        // Header height where the white navigation bar ends
+        var headerHeight = 75;
+
+        // 1. Vesak Light String (Top Wire) - Placed at the bottom edge of the white header
         var lightString = document.createElement('img');
-        lightString.src = 'images/vesak_lights.svg';
+        lightString.src = 'images/vesak_lights.svg?v=2';
         lightString.style.position = 'fixed';
-        lightString.style.top = '-5px';
+        lightString.style.top = (headerHeight - 20) + 'px'; // Wire (y=20) touches headerHeight
         lightString.style.left = '0';
         lightString.style.width = '100%';
-        lightString.style.height = '60px'; // Set a fixed height to prevent vertical stretching
+        lightString.style.height = '60px';
         lightString.style.zIndex = '9996';
         lightString.style.pointerEvents = 'none';
         container.appendChild(lightString);
 
-        // 2. Vesak Lanterns (Lowered to clear header, and adding dynamic hanging wires)
+        // 2. Vesak Lanterns (Hanging from the same header level)
         var lanternConfigs = [
             // Top Left (Octagonal)
-            { type: 'oct', top: '240px', left: '40px', width: '150px', dur: '6s' },
+            { type: 'oct', top: (headerHeight + 160) + 'px', left: '40px', width: '150px', dur: '6s' },
             // Top Right (Bucket Style - Pink)
-            { type: 'bucket', top: '220px', right: '50px', width: '130px', dur: '7s' },
+            { type: 'bucket', top: (headerHeight + 140) + 'px', right: '50px', width: '130px', dur: '7s' },
             // Middle Left (Bucket)
-            { type: 'bucket', top: '340px', left: '200px', width: '100px', dur: '5s' }
+            { type: 'bucket', top: (headerHeight + 280) + 'px', left: '200px', width: '100px', dur: '5s' }
         ];
 
         lanternConfigs.forEach(function (conf, index) {
-            // Hanging Wire (Div)
+            // Hanging Wire starts from headerHeight
             var wire = document.createElement('div');
             wire.className = 'vesak-hanging-wire';
             wire.style.left = conf.left || 'auto';
             wire.style.right = conf.right || 'auto';
-            wire.style.top = '0';
-            wire.style.height = conf.top;
-            // Adjust left/right for center of lantern
+            wire.style.top = headerHeight + 'px';
+            wire.style.height = (parseInt(conf.top) - headerHeight) + 'px';
+
             if (conf.left) {
                 var offset = parseInt(conf.width) / 2;
                 wire.style.left = (parseInt(conf.left) + offset) + 'px';
@@ -309,31 +312,31 @@ document.addEventListener("DOMContentLoaded", function () {
             container.appendChild(l);
         });
 
-        // 3. Bottom Left Scene (Lotus Pond & Oil Lamp) - SCALED UP
+        // 3. Bottom Left Scene (Lotus Pond & Oil Lamp) - Lush design
         var scene = document.createElement('img');
-        scene.src = 'images/vesak_scene.svg';
+        scene.src = 'images/vesak_scene.svg?v=2';
         scene.style.position = 'fixed';
-        scene.style.bottom = '-40px';
-        scene.style.left = '-40px';
-        scene.style.width = '420px'; // Increased size significantly
+        scene.style.bottom = '-30px';
+        scene.style.left = '-30px';
+        scene.style.width = '450px';
         scene.style.zIndex = '9998';
         scene.id = 'vesak-scene-bottom';
         container.appendChild(scene);
 
-        // 4. Greeting (Repositioned to clear lanterns)
+        // 4. Greeting (Positioned like Christmas edition: top 80, right 20)
         var greeting = document.createElement('div');
         greeting.innerHTML = '☸️ Pinwantha Vesak Mangalyayak Wewa ☸️';
         greeting.style.position = 'fixed';
-        greeting.style.top = '140px';
-        greeting.style.right = '40px';
+        greeting.style.top = '80px';
+        greeting.style.right = '20px';
         greeting.style.color = '#FFF59D';
         greeting.style.background = 'rgba(80, 20, 20, 0.95)';
-        greeting.style.padding = '10px 20px';
-        greeting.style.borderRadius = '30px';
+        greeting.style.padding = '8px 15px';
+        greeting.style.borderRadius = '20px';
         greeting.style.fontFamily = 'cursive, sans-serif';
         greeting.style.fontWeight = 'bold';
         greeting.style.zIndex = '9997';
-        greeting.style.boxShadow = '0 0 20px rgba(255, 235, 59, 0.4)';
+        greeting.style.boxShadow = '0 0 15px rgba(255, 213, 79, 0.4)';
         container.appendChild(greeting);
 
         document.body.appendChild(container);
@@ -351,9 +354,9 @@ document.addEventListener("DOMContentLoaded", function () {
             .vesak-hanging-wire {
                 position: fixed;
                 width: 1px;
-                background: #666;
+                background: #888;
                 z-index: 9998;
-                opacity: 0.6;
+                opacity: 0.5;
             }
             @media (max-width: 768px) {
                 .vesak-lantern-swing:nth-of-type(3) { display: none; }
