@@ -150,9 +150,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // 1.5 Small Plants beneath the tree (lush undergrowth)
         var plantPositions = [
-            { bottom: '0px', left: '60px', width: '80px', rotate: '0deg' },
-            { bottom: '-5px', left: '10px', width: '60px', rotate: '-10deg' },
-            { bottom: '5px', left: '120px', width: '70px', rotate: '15deg' }
+            { bottom: '0px', left: '80px', width: '70px', rotate: '5deg' },
+            { bottom: '5px', left: '160px', width: '60px', rotate: '15deg' }
         ];
 
         plantPositions.forEach(function (pos, index) {
@@ -172,9 +171,9 @@ document.addEventListener("DOMContentLoaded", function () {
         var flower = document.createElement('img');
         flower.src = 'images/erabadu.svg?v=6';
         flower.style.position = 'fixed';
-        flower.style.bottom = '-15px';
-        flower.style.left = '-10px';
-        flower.style.width = '100px';
+        flower.style.bottom = '-20px';
+        flower.style.left = '-15px';
+        flower.style.width = '110px';
         flower.style.zIndex = '10001';
         flower.style.transformOrigin = 'bottom left';
         flower.className = 'extra-flower-cluster';
@@ -239,35 +238,53 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function addButterflyAnimation() {
-        // Butterfly fluttering around the tree
+        // Butterfly container for the flight path
+        var container = document.createElement('div');
+        container.id = 'ny-butterfly';
+        container.style.position = 'fixed';
+        container.style.bottom = '100px';
+        container.style.left = '50px';
+        container.style.zIndex = '10000';
+        container.style.width = '40px';
+        container.style.height = '40px';
+        container.style.pointerEvents = 'none';
+
+        // Inner element for the wing-flap
         var butterfly = document.createElement('img');
         butterfly.src = 'images/butterfly.svg';
-        butterfly.style.width = '40px';
-        butterfly.style.height = '40px';
-        butterfly.style.position = 'fixed';
-        butterfly.style.zIndex = '10000'; // Top most
-        butterfly.style.bottom = '100px';
-        butterfly.style.left = '50px';
-        butterfly.id = 'ny-butterfly';
+        butterfly.style.width = '100%';
+        butterfly.style.height = '100%';
+        butterfly.id = 'ny-butterfly-inner';
 
-        document.body.appendChild(butterfly);
+        container.appendChild(butterfly);
+        document.body.appendChild(container);
 
         var style = document.createElement('style');
         style.innerHTML = `
             @keyframes butterflyPath {
-                0% { transform: translate(0, 0) rotate(0deg); }
-                25% { transform: translate(100px, -50px) rotate(20deg); }
-                50% { transform: translate(200px, 0px) rotate(0deg); }
-                75% { transform: translate(100px, 50px) rotate(-20deg); }
-                100% { transform: translate(0, 0) rotate(0deg); }
+                0% { transform: translate(0, 0) rotate(10deg); }
+                15% { transform: translate(40px, -60px) rotate(-20deg); }
+                30% { transform: translate(120px, -20px) rotate(30deg); }
+                45% { transform: translate(180px, -80px) rotate(-10deg); }
+                60% { transform: translate(220px, 20px) rotate(40deg); }
+                75% { transform: translate(140px, 70px) rotate(-20deg); }
+                90% { transform: translate(60px, 30px) rotate(10deg); }
+                100% { transform: translate(0, 0) rotate(10deg); }
             }
-             @keyframes wingFlap {
-                0% { opacity: 1; transform: scaleX(1); }
-                50% { opacity: 0.8; transform: scaleX(0.2); } /* Faux flap */
-                100% { opacity: 1; transform: scaleX(1); }
+            @keyframes wingFlap {
+                0%, 100% { transform: scaleX(1); }
+                50% { transform: scaleX(0.3); }
             }
             #ny-butterfly {
-                animation: butterflyPath 10s ease-in-out infinite, wingFlap 0.2s ease-in-out infinite;
+                animation: butterflyPath 12s ease-in-out infinite;
+                transform-style: preserve-3d;
+                display: inline-block;
+            }
+            #ny-butterfly-inner {
+                animation: wingFlap 0.15s ease-in-out infinite;
+                display: block;
+                width: 100%;
+                height: 100%;
             }
         `;
         document.head.appendChild(style);
