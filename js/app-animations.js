@@ -254,33 +254,52 @@ document.addEventListener("DOMContentLoaded", function () {
         var container = document.createElement('div');
         container.id = 'vesak-deco';
 
-        // 1. Vesak Light String (Top Wire)
+        // 1. Vesak Light String (Top Wire) - STRETCHED TO FULL WIDTH
         var lightString = document.createElement('img');
         lightString.src = 'images/vesak_lights.svg';
         lightString.style.position = 'fixed';
-        lightString.style.top = '-10px';
+        lightString.style.top = '-5px';
         lightString.style.left = '0';
         lightString.style.width = '100%';
-        lightString.style.height = 'auto'; // Maintain aspect ratio but allow stretch
+        lightString.style.height = '60px'; // Set a fixed height to prevent vertical stretching
         lightString.style.zIndex = '9996';
         lightString.style.pointerEvents = 'none';
         container.appendChild(lightString);
 
-        // 2. Vesak Lanterns (Lowered significantly to avoid navigation and header name)
+        // 2. Vesak Lanterns (Lowered to clear header, and adding dynamic hanging wires)
         var lanternConfigs = [
             // Top Left (Octagonal)
-            { type: 'oct', top: '240px', left: '20px', width: '140px', dur: '5s' },
+            { type: 'oct', top: '240px', left: '40px', width: '150px', dur: '6s' },
             // Top Right (Bucket Style - Pink)
-            { type: 'bucket', top: '220px', right: '30px', width: '120px', dur: '6s' },
+            { type: 'bucket', top: '220px', right: '50px', width: '130px', dur: '7s' },
             // Middle Left (Bucket)
-            { type: 'bucket', top: '300px', left: '180px', width: '90px', dur: '4.5s' }
+            { type: 'bucket', top: '340px', left: '200px', width: '100px', dur: '5s' }
         ];
 
         lanternConfigs.forEach(function (conf, index) {
+            // Hanging Wire (Div)
+            var wire = document.createElement('div');
+            wire.className = 'vesak-hanging-wire';
+            wire.style.left = conf.left || 'auto';
+            wire.style.right = conf.right || 'auto';
+            wire.style.top = '0';
+            wire.style.height = conf.top;
+            // Adjust left/right for center of lantern
+            if (conf.left) {
+                var offset = parseInt(conf.width) / 2;
+                wire.style.left = (parseInt(conf.left) + offset) + 'px';
+            }
+            if (conf.right) {
+                var offset = parseInt(conf.width) / 2;
+                wire.style.right = (parseInt(conf.right) + offset) + 'px';
+            }
+            container.appendChild(wire);
+
+            // The Lantern
             var l = document.createElement('img');
             l.src = conf.type === 'oct' ? 'images/vesak_lantern.svg' : 'images/vesak_lantern_bucket.svg';
             l.style.position = 'fixed';
-            if (conf.top) l.style.top = conf.top;
+            l.style.top = conf.top;
             if (conf.right) l.style.right = conf.right;
             if (conf.left) l.style.left = conf.left;
             l.style.width = conf.width;
@@ -290,31 +309,31 @@ document.addEventListener("DOMContentLoaded", function () {
             container.appendChild(l);
         });
 
-        // 3. Bottom Left Scene (Lotus Pond & Oil Lamp)
+        // 3. Bottom Left Scene (Lotus Pond & Oil Lamp) - SCALED UP
         var scene = document.createElement('img');
         scene.src = 'images/vesak_scene.svg';
         scene.style.position = 'fixed';
-        scene.style.bottom = '-30px';
-        scene.style.left = '-30px';
-        scene.style.width = '300px';
+        scene.style.bottom = '-40px';
+        scene.style.left = '-40px';
+        scene.style.width = '420px'; // Increased size significantly
         scene.style.zIndex = '9998';
         scene.id = 'vesak-scene-bottom';
         container.appendChild(scene);
 
-        // 4. Greeting
+        // 4. Greeting (Repositioned to clear lanterns)
         var greeting = document.createElement('div');
         greeting.innerHTML = '☸️ Pinwantha Vesak Mangalyayak Wewa ☸️';
         greeting.style.position = 'fixed';
-        greeting.style.top = '170px';
-        greeting.style.right = '20px';
+        greeting.style.top = '140px';
+        greeting.style.right = '40px';
         greeting.style.color = '#FFF59D';
-        greeting.style.background = 'rgba(80, 20, 20, 0.9)';
-        greeting.style.padding = '8px 15px';
-        greeting.style.borderRadius = '20px';
+        greeting.style.background = 'rgba(80, 20, 20, 0.95)';
+        greeting.style.padding = '10px 20px';
+        greeting.style.borderRadius = '30px';
         greeting.style.fontFamily = 'cursive, sans-serif';
         greeting.style.fontWeight = 'bold';
         greeting.style.zIndex = '9997';
-        greeting.style.boxShadow = '0 0 10px rgba(255, 235, 59, 0.3)';
+        greeting.style.boxShadow = '0 0 20px rgba(255, 235, 59, 0.4)';
         container.appendChild(greeting);
 
         document.body.appendChild(container);
@@ -329,10 +348,19 @@ document.addEventListener("DOMContentLoaded", function () {
                 animation: lanternSwing ease-in-out infinite;
                 transform-origin: top center;
             }
+            .vesak-hanging-wire {
+                position: fixed;
+                width: 1px;
+                background: #666;
+                z-index: 9998;
+                opacity: 0.6;
+            }
             @media (max-width: 768px) {
-                .vesak-lantern-swing:nth-of-type(3) { display: none; } /* Hide 3rd lantern on mobile */
-                div[style*="Pinwara"] { font-size: 12px; top: 70px; right: 10px; }
-                #vesak-scene-bottom { width: 180px; bottom: -10px; left: -10px; }
+                .vesak-lantern-swing:nth-of-type(3) { display: none; }
+                .vesak-hanging-wire:nth-of-type(3) { display: none; }
+                div[style*="Pinwantha"] { font-size: 14px; top: 80px; right: 10px; }
+                #vesak-scene-bottom { width: 250px; bottom: -20px; left: -20px; }
+                .vesak-lantern-swing { width: 100px !important; }
             }
         `;
         document.head.appendChild(style);

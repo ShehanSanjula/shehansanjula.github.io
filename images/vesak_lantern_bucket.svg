@@ -6,7 +6,7 @@
       <stop offset="100%" stop-color="#C2185B" />
     </linearGradient>
     <filter id="bucketGlow">
-       <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+       <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
        <feMerge>
          <feMergeNode in="coloredBlur"/>
          <feMergeNode in="SourceGraphic"/>
@@ -14,37 +14,28 @@
     </filter>
   </defs>
 
-  <!-- Hanging Thread -->
-  <line x1="75" y1="0" x2="75" y2="40" stroke="#888" stroke-width="1.5" />
-
-  <!-- Cylinder Body -->
+  <!-- Body -->
   <g transform="translate(75, 40)">
-     <!-- Top Ring -->
-     <ellipse cx="0" cy="0" rx="35" ry="10" fill="#880E4F" stroke="#F8BBD0" stroke-width="1"/>
-     
-     <!-- Body -->
-     <path d="M-35,0 L-35,80 A35,10 0 0,0 35,80 L35,0 A35,10 0 0,0 -35,0" fill="url(#bucketGrad)" filter="url(#bucketGlow)" opacity="0.9">
+     <ellipse cx="0" cy="0" rx="40" ry="12" fill="#880E4F" stroke="#F8BBD0" stroke-width="1"/>
+     <path d="M-40,0 L-40,100 A40,12 0 0,0 40,100 L40,0 A40,12 0 0,0 -40,0" fill="url(#bucketGrad)" filter="url(#bucketGlow)" opacity="0.95">
          <animate attributeName="opacity" values="0.9;1;0.9" dur="2s" repeatCount="indefinite" />
      </path>
-     <!-- Ruffles/Texture -->
-     <path d="M-35,20 Q0,30 35,20" fill="none" stroke="#880E4F" stroke-width="0.5" opacity="0.5"/>
-     <path d="M-35,40 Q0,50 35,40" fill="none" stroke="#880E4F" stroke-width="0.5" opacity="0.5"/>
-     <path d="M-35,60 Q0,70 35,60" fill="none" stroke="#880E4F" stroke-width="0.5" opacity="0.5"/>
-
-     <!-- Bottom Ring -->
-     <ellipse cx="0" cy="80" rx="35" ry="10" fill="none" stroke="#F8BBD0" stroke-width="1"/>
+     <path d="M-40,25 Q0,35 40,25" fill="none" stroke="#880E4F" stroke-width="0.5" opacity="0.4"/>
+     <path d="M-40,50 Q0,60 40,50" fill="none" stroke="#880E4F" stroke-width="0.5" opacity="0.4"/>
+     <path d="M-40,75 Q0,85 40,75" fill="none" stroke="#880E4F" stroke-width="0.5" opacity="0.4"/>
+     <ellipse cx="0" cy="100" rx="40" ry="12" fill="none" stroke="#F8BBD0" stroke-width="1.5"/>
   </g>
 
-  <!-- Hanging Frills (Tail) -->
-  <g transform="translate(75, 120)">
-      <path d="M0,0 Q10,30 0,100" stroke="#F48FB1" stroke-width="3" fill="none">
-         <animate attributeName="d" values="M0,0 Q10,30 0,100; M0,0 Q-10,30 0,100; M0,0 Q10,30 0,100" dur="3s" repeatCount="indefinite" />
+  <!-- Flowing Rekki (Tails) -->
+  <g transform="translate(75, 140)">
+      <path d="M0,0 Q15,40 0,140" stroke="#F48FB1" stroke-width="3" fill="none">
+         <animate attributeName="d" values="M0,0 Q15,40 0,140; M0,0 Q-15,40 0,140; M0,0 Q15,40 0,140" dur="3s" repeatCount="indefinite" />
       </path>
-      <path d="M-10,0 Q-20,30 -15,90" stroke="#F06292" stroke-width="2" fill="none">
-          <animate attributeName="d" values="M-10,0 Q-20,30 -15,90; M-10,0 Q0,30 -15,90; M-10,0 Q-20,30 -15,90" dur="4s" repeatCount="indefinite" />
+      <path d="M-15,0 Q-25,40 -10,120" stroke="#F06292" stroke-width="2" opacity="0.8" fill="none">
+          <animate attributeName="d" values="M-15,0 Q-25,40 -10,120; M-15,0 Q0,40 -10,120; M-15,0 Q-25,40 -10,120" dur="4s" repeatCount="indefinite" />
       </path>
-      <path d="M10,0 Q20,30 15,90" stroke="#F06292" stroke-width="2" fill="none">
-          <animate attributeName="d" values="M10,0 Q20,30 15,90; M10,0 Q0,30 15,90; M10,0 Q20,30 15,90" dur="3.5s" repeatCount="indefinite" />
+      <path d="M15,0 Q25,40 10,120" stroke="#F06292" stroke-width="2" opacity="0.8" fill="none">
+          <animate attributeName="d" values="M15,0 Q25,40 10,120; M15,0 Q0,40 10,120; M15,0 Q25,40 10,120" dur="3.5s" repeatCount="indefinite" />
       </path>
   </g>
 

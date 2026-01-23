@@ -1,7 +1,7 @@
-<svg width="800" height="150" viewBox="0 0 800 150" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+<svg width="1000" height="150" viewBox="0 0 1000 150" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
   <defs>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+    <filter id="glowBulb">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
       <feMerge>
         <feMergeNode in="coloredBlur"/>
         <feMergeNode in="SourceGraphic"/>
@@ -9,70 +9,28 @@
     </filter>
   </defs>
 
-  <!-- Wire -->
-  <path d="M0,20 Q200,60 400,20 T800,20" stroke="#222" stroke-width="2.5" fill="none" />
+  <!-- Thick Wire -->
+  <path d="M0,20 Q250,70 500,20 T1000,20" stroke="#1a1a1a" stroke-width="3" fill="none" />
 
   <!-- Bulb Template -->
-  <!-- We'll define the colors directly in the 'use' instances with CSS if possible, but for simplicity we'll keep the separate groups -->
-  
-  <symbol id="bulb-base">
-     <line x1="0" y1="0" x2="0" y2="12" stroke="#111" stroke-width="1.5"/>
-     <circle cx="0" cy="18" r="7" filter="url(#glow)"/>
+  <symbol id="bulb">
+     <line x1="0" y1="0" x2="0" y2="15" stroke="#000" stroke-width="2"/>
+     <circle cx="0" cy="22" r="8" filter="url(#glowBulb)"/>
   </symbol>
 
-  <!-- Distribute Bulbs along the wire calculation -->
-  <!-- y = 20 + 80t - 80t^2 where t = x/400 -->
-  
-  <!-- First half 0-400 -->
-  <g fill="#F44336"> <!-- Red -->
-    <use href="#bulb-base" x="50" y="28">
-         <animate attributeName="opacity" values="0.5;1;0.5" dur="1s" repeatCount="indefinite" />
-    </use>
-  </g>
-  <g fill="#FFEB3B"> <!-- Yellow -->
-    <use href="#bulb-base" x="125" y="37.5">
-         <animate attributeName="opacity" values="0.5;1;0.5" dur="1.2s" repeatCount="indefinite" />
-    </use>
-  </g>
-  <g fill="#2196F3"> <!-- Blue -->
-    <use href="#bulb-base" x="200" y="40">
-         <animate attributeName="opacity" values="0.5;1;0.5" dur="0.8s" repeatCount="indefinite" />
-    </use>
-  </g>
-  <g fill="#4CAF50"> <!-- Green -->
-    <use href="#bulb-base" x="275" y="37.5">
-         <animate attributeName="opacity" values="0.5;1;0.5" dur="1.5s" repeatCount="indefinite" />
-    </use>
-  </g>
-  <g fill="#FF9800"> <!-- Orange -->
-    <use href="#bulb-base" x="350" y="28">
-         <animate attributeName="opacity" values="0.5;1;0.5" dur="1.1s" repeatCount="indefinite" />
-    </use>
-  </g>
-  
-  <!-- Peak/Trough at 400 -->
-  <g fill="#2196F3">
-    <use href="#bulb-base" x="400" y="20">
-         <animate attributeName="opacity" values="0.5;1;0.5" dur="0.9s" repeatCount="indefinite" />
-    </use>
-  </g>
-
-  <!-- Second half 400-800 -->
-  <!-- Mirrored path -->
-  <g fill="#F44336">
-    <use href="#bulb-base" x="450" y="28" />
-  </g>
-  <g fill="#FFEB3B">
-    <use href="#bulb-base" x="525" y="37.5" />
-  </g>
-  <g fill="#4CAF50">
-    <use href="#bulb-base" x="600" y="40" />
-  </g>
-  <g fill="#FF9800">
-    <use href="#bulb-base" x="675" y="37.5" />
-  </g>
-  <g fill="#2196F3">
-    <use href="#bulb-base" x="750" y="28" />
-  </g>
+  <!-- 15 Bulbs across 1000px -->
+  <g fill="#F44336"><use href="#bulb" x="50" y="32"><animate attributeName="opacity" values="0.6;1;0.6" dur="1s" repeatCount="indefinite" /></use></g>
+  <g fill="#FFEB3B"><use href="#bulb" x="120" y="45"><animate attributeName="opacity" values="0.6;1;0.6" dur="1.2s" repeatCount="indefinite" /></use></g>
+  <g fill="#2196F3"><use href="#bulb" x="190" y="55"><animate attributeName="opacity" values="0.6;1;0.6" dur="0.8s" repeatCount="indefinite" /></use></g>
+  <g fill="#4CAF50"><use href="#bulb" x="260" y="60"><animate attributeName="opacity" values="0.6;1;0.6" dur="1.5s" repeatCount="indefinite" /></use></g>
+  <g fill="#FF9800"><use href="#bulb" x="330" y="55"><animate attributeName="opacity" values="0.6;1;0.6" dur="1.1s" repeatCount="indefinite" /></use></g>
+  <g fill="#F44336"><use href="#bulb" x="400" y="40"><animate attributeName="opacity" values="0.6;1;0.6" dur="1.3s" repeatCount="indefinite" /></use></g>
+  <g fill="#FFEB3B"><use href="#bulb" x="500" y="20"><animate attributeName="opacity" values="0.6;1;0.6" dur="1.0s" repeatCount="indefinite" /></use></g>
+  <g fill="#2196F3"><use href="#bulb" x="600" y="40"><animate attributeName="opacity" values="0.6;1;0.6" dur="1.2s" repeatCount="indefinite" /></use></g>
+  <g fill="#4CAF50"><use href="#bulb" x="670" y="55"><animate attributeName="opacity" values="0.6;1;0.6" dur="0.9s" repeatCount="indefinite" /></use></g>
+  <g fill="#FF9800"><use href="#bulb" x="740" y="60"><animate attributeName="opacity" values="0.6;1;0.6" dur="1.4s" repeatCount="indefinite" /></use></g>
+  <g fill="#F44336"><use href="#bulb" x="810" y="55"><animate attributeName="opacity" values="0.6;1;0.6" dur="1.1s" repeatCount="indefinite" /></use></g>
+  <g fill="#2196F3"><use href="#bulb" x="880" y="45"><animate attributeName="opacity" values="0.6;1;0.6" dur="0.8s" repeatCount="indefinite" /></use></g>
+  <g fill="#4CAF50"><use href="#bulb" x="950" y="32"><animate attributeName="opacity" values="0.6;1;0.6" dur="1s" repeatCount="indefinite" /></use></g>
 
 </svg>
