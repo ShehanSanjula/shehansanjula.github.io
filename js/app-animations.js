@@ -10,21 +10,26 @@ document.addEventListener("DOMContentLoaded", function () {
     // New Year: March 1 to April 30
     var isNewYear = (month === 3) || (month === 4);
 
+    // Vesak/Poson: May 1 to June 30
+    var isVesak = (month === 5) || (month === 6);
+
     // DEMO OVERRIDE: Uncomment to force specific seasons for testing
     // isChristmas = true;
-    isNewYear = true;
+    // isNewYear = true;
+    isVesak = true;
 
     if (isChristmas) {
         initChristmasAnimation();
     } else if (isNewYear) {
         initNewYearAnimation();
+    } else if (isVesak) {
+        initVesakAnimation();
     } else {
         initDefaultParticles();
     }
 
     function initChristmasAnimation() {
         console.log("Initializing Christmas Animation");
-        // ... (Same as before)
         if (!document.getElementById('snow')) {
             var snowCanvas = document.createElement('canvas');
             snowCanvas.id = 'snow';
@@ -237,6 +242,102 @@ document.addEventListener("DOMContentLoaded", function () {
         document.head.appendChild(style);
     }
 
+    function initVesakAnimation() {
+        console.log("Initializing Vesak Animation (Lanterns + Bulbs)");
+        addVesakDecorations();
+        initDefaultParticles();
+    }
+
+    function addVesakDecorations() {
+        if (document.getElementById('vesak-deco')) return;
+
+        var container = document.createElement('div');
+        container.id = 'vesak-deco';
+
+        // 1. Vesak Lanterns (Top left and Right)
+        var lanternConfigs = [
+            { top: '-20px', left: '50px', width: '150px', rotate: '-5deg', dur: '5s' },
+            { top: '-30px', right: '100px', width: '180px', rotate: '3deg', dur: '6s' },
+            { top: '20px', left: '250px', width: '100px', rotate: '10deg', dur: '4s' }
+        ];
+
+        lanternConfigs.forEach(function (conf, index) {
+            var l = document.createElement('img');
+            l.src = 'images/vesak_lantern.svg';
+            l.style.position = 'fixed';
+            if (conf.top) l.style.top = conf.top;
+            if (conf.right) l.style.right = conf.right;
+            if (conf.left) l.style.left = conf.left;
+            l.style.width = conf.width;
+            l.style.zIndex = '9999';
+            l.className = 'vesak-lantern-swing';
+            l.style.animationDuration = conf.dur;
+            container.appendChild(l);
+        });
+
+        // 2. Vesak Bulbs / Lights (Scattered)
+        var bulbContainer = document.createElement('div');
+        bulbContainer.className = 'vesak-bulbs';
+        for (var i = 0; i < 15; i++) {
+            var bulb = document.createElement('div');
+            bulb.className = 'vesak-bulb';
+            bulb.style.top = Math.random() * 40 + '%';
+            bulb.style.left = Math.random() * 100 + '%';
+            bulb.style.background = ['#F44336', '#FFEB3B', '#4CAF50', '#2196F3', '#FF9800'][Math.floor(Math.random() * 5)];
+            bulb.style.animationDelay = (Math.random() * 2) + 's';
+            bulbContainer.appendChild(bulb);
+        }
+        container.appendChild(bulbContainer);
+
+        // 3. Greeting
+        var greeting = document.createElement('div');
+        greeting.innerHTML = '☸️ Pinwara Vesak Mangalyayak Wewa ☸️';
+        greeting.style.position = 'fixed';
+        greeting.style.top = '80px';
+        greeting.style.right = '20px';
+        greeting.style.color = '#FFD54F';
+        greeting.style.background = 'rgba(109, 27, 27, 0.9)';
+        greeting.style.padding = '8px 15px';
+        greeting.style.borderRadius = '20px';
+        greeting.style.fontFamily = 'cursive, sans-serif';
+        greeting.style.fontWeight = 'bold';
+        greeting.style.zIndex = '9998';
+        greeting.style.boxShadow = '0 0 15px rgba(255, 213, 79, 0.4)';
+        container.appendChild(greeting);
+
+        document.body.appendChild(container);
+
+        var style = document.createElement('style');
+        style.innerHTML = `
+            @keyframes lanternSwing {
+                0%, 100% { transform: rotate(-3deg) translateX(-5px); }
+                50% { transform: rotate(3deg) translateX(5px); }
+            }
+            .vesak-lantern-swing {
+                animation: lanternSwing ease-in-out infinite;
+                transform-origin: top center;
+            }
+            .vesak-bulb {
+                position: fixed;
+                width: 6px;
+                height: 6px;
+                border-radius: 50%;
+                z-index: 9997;
+                filter: blur(1px);
+                animation: bulbFlicker 1.5s infinite alternate;
+            }
+            @keyframes bulbFlicker {
+                0% { opacity: 0.3; transform: scale(0.8); box-shadow: 0 0 2px currentColor; }
+                100% { opacity: 1; transform: scale(1.1); box-shadow: 0 0 8px currentColor; }
+            }
+            @media (max-width: 768px) {
+                .vesak-lantern-swing:nth-child(n+2) { display: none; }
+                div[style*="Pinwara"] { display: none; }
+            }
+        `;
+        document.head.appendChild(style);
+    }
+
     function addButterflyAnimation() {
         // Butterfly container for the flight path
         var container = document.createElement('div');
@@ -289,7 +390,6 @@ document.addEventListener("DOMContentLoaded", function () {
         `;
         document.head.appendChild(style);
     }
-
 
     function initDefaultParticles() {
         console.log("Initializing Default Particles");

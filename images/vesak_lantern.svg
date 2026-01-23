@@ -1,0 +1,49 @@
+<svg width="200" height="400" viewBox="0 0 200 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="lanternGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF176" />
+      <stop offset="100%" stop-color="#F9A825" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Hanging Thread -->
+  <line x1="100" y1="0" x2="100" y2="50" stroke="#8D6E63" stroke-width="2" />
+
+  <!-- Main Octagonal Body (Atapattama) -->
+  <g transform="translate(100, 130)">
+    <path d="M 0 -80 L 70 -40 L 70 40 L 0 80 L -70 40 L -70 -40 Z" fill="url(#lanternGrad)" stroke="#F57F17" stroke-width="2" filter="url(#glow)">
+        <animate attributeName="fill" values="#FFF176;#FFD54F;#FFF176" dur="3s" repeatCount="indefinite" />
+    </path>
+    
+    <!-- Pattern on lantern -->
+    <path d="M 0 -80 L 0 80 M -70 -40 L 70 -40 M -70 40 L 70 40" stroke="#F57F17" stroke-width="1" opacity="0.5"/>
+    <circle cx="0" cy="0" r="20" fill="none" stroke="#F57F17" stroke-width="1" opacity="0.3"/>
+  </g>
+
+  <!-- Hanging Frills (Rekki) -->
+  <g transform="translate(100, 210)">
+    <!-- Main Center Frill -->
+    <rect x="-5" y="0" width="10" height="120" fill="#FFF59D" opacity="0.8">
+        <animateTransform attributeName="transform" type="rotate" values="-2 0 0; 2 0 0; -2 0 0" dur="4s" repeatCount="indefinite" />
+    </rect>
+    <!-- Left Frill -->
+    <rect x="-35" y="0" width="8" height="90" fill="#FFF59D" opacity="0.7">
+        <animateTransform attributeName="transform" type="rotate" values="-5 0 0; 5 0 0; -5 0 0" dur="3s" repeatCount="indefinite" />
+    </rect>
+    <!-- Right Frill -->
+    <rect x="27" y="0" width="8" height="90" fill="#FFF59D" opacity="0.7">
+        <animateTransform attributeName="transform" type="rotate" values="5 0 0; -5 0 0; 5 0 0" dur="3.5s" repeatCount="indefinite" />
+    </rect>
+    
+    <!-- Detail on frills (zig-zag edges) -->
+    <path d="M-35 90 l4 10 l4-10 M-5 120 l5 10 l5-10 M27 90 l4 10 l4-10" fill="none" stroke="#FBC02D" stroke-width="1"/>
+  </g>
+
+</svg>
