@@ -59,10 +59,21 @@ document.addEventListener("DOMContentLoaded", function () {
         santaContainer.style.pointerEvents = 'none'; // Ensure it doesn't block clicks
 
         var santaImg = document.createElement('img');
-        // Animated GIF from Pixabay
-        santaImg.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Santa_Claus_reindeer_sleigh.svg/640px-Santa_Claus_reindeer_sleigh.svg.png';
+        // Wikimedia Direct SVG (Silhouette)
+        santaImg.src = 'https://upload.wikimedia.org/wikipedia/commons/6/6c/Santa_Claus_reindeer_sleigh.svg';
         santaImg.style.width = '300px';
         santaImg.style.height = 'auto';
+        santaImg.style.filter = 'brightness(0) invert(1)'; // Make it white for dark backgrounds
+
+        // Fallback if image fails (Network block etc.)
+        santaImg.onerror = function () {
+            this.style.display = 'none';
+            var fallback = document.createElement('div');
+            fallback.innerText = '🦌🦌🛷🎅';
+            fallback.style.fontSize = '40px';
+            fallback.style.color = 'white';
+            santaContainer.appendChild(fallback);
+        };
 
         santaContainer.appendChild(santaImg);
         document.body.appendChild(santaContainer);
