@@ -1,0 +1,51 @@
+<svg width="150" height="300" viewBox="0 0 150 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bucketGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#E91E63" />
+      <stop offset="50%" stop-color="#F48FB1" />
+      <stop offset="100%" stop-color="#C2185B" />
+    </linearGradient>
+    <filter id="bucketGlow">
+       <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+       <feMerge>
+         <feMergeNode in="coloredBlur"/>
+         <feMergeNode in="SourceGraphic"/>
+       </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Hanging Thread -->
+  <line x1="75" y1="0" x2="75" y2="40" stroke="#888" stroke-width="1.5" />
+
+  <!-- Cylinder Body -->
+  <g transform="translate(75, 40)">
+     <!-- Top Ring -->
+     <ellipse cx="0" cy="0" rx="35" ry="10" fill="#880E4F" stroke="#F8BBD0" stroke-width="1"/>
+     
+     <!-- Body -->
+     <path d="M-35,0 L-35,80 A35,10 0 0,0 35,80 L35,0 A35,10 0 0,0 -35,0" fill="url(#bucketGrad)" filter="url(#bucketGlow)" opacity="0.9">
+         <animate attributeName="opacity" values="0.9;1;0.9" dur="2s" repeatCount="indefinite" />
+     </path>
+     <!-- Ruffles/Texture -->
+     <path d="M-35,20 Q0,30 35,20" fill="none" stroke="#880E4F" stroke-width="0.5" opacity="0.5"/>
+     <path d="M-35,40 Q0,50 35,40" fill="none" stroke="#880E4F" stroke-width="0.5" opacity="0.5"/>
+     <path d="M-35,60 Q0,70 35,60" fill="none" stroke="#880E4F" stroke-width="0.5" opacity="0.5"/>
+
+     <!-- Bottom Ring -->
+     <ellipse cx="0" cy="80" rx="35" ry="10" fill="none" stroke="#F8BBD0" stroke-width="1"/>
+  </g>
+
+  <!-- Hanging Frills (Tail) -->
+  <g transform="translate(75, 120)">
+      <path d="M0,0 Q10,30 0,100" stroke="#F48FB1" stroke-width="3" fill="none">
+         <animate attributeName="d" values="M0,0 Q10,30 0,100; M0,0 Q-10,30 0,100; M0,0 Q10,30 0,100" dur="3s" repeatCount="indefinite" />
+      </path>
+      <path d="M-10,0 Q-20,30 -15,90" stroke="#F06292" stroke-width="2" fill="none">
+          <animate attributeName="d" values="M-10,0 Q-20,30 -15,90; M-10,0 Q0,30 -15,90; M-10,0 Q-20,30 -15,90" dur="4s" repeatCount="indefinite" />
+      </path>
+      <path d="M10,0 Q20,30 15,90" stroke="#F06292" stroke-width="2" fill="none">
+          <animate attributeName="d" values="M10,0 Q20,30 15,90; M10,0 Q0,30 15,90; M10,0 Q20,30 15,90" dur="3.5s" repeatCount="indefinite" />
+      </path>
+  </g>
+
+</svg>

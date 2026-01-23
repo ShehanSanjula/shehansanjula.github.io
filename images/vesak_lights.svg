@@ -1,0 +1,66 @@
+<svg width="800" height="150" viewBox="0 0 800 150" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+  <defs>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Wire -->
+  <path d="M0,20 Q200,60 400,20 T800,20" stroke="#333" stroke-width="2" fill="none" />
+
+  <!-- Bulbs -->
+  <g id="bulb-red">
+     <path d="M0,0 L0,10" stroke="#333" stroke-width="1"/>
+     <circle cx="0" cy="15" r="6" fill="#F44336" filter="url(#glow)">
+       <animate attributeName="opacity" values="0.4;1;0.4" dur="1s" repeatCount="indefinite" />
+     </circle>
+  </g>
+  
+  <g id="bulb-yellow">
+     <path d="M0,0 L0,10" stroke="#333" stroke-width="1"/>
+     <circle cx="0" cy="15" r="6" fill="#FFEB3B" filter="url(#glow)">
+        <animate attributeName="opacity" values="0.4;1;0.4" dur="1.2s" repeatCount="indefinite" />
+     </circle>
+  </g>
+  
+  <g id="bulb-blue">
+     <path d="M0,0 L0,10" stroke="#333" stroke-width="1"/>
+     <circle cx="0" cy="15" r="6" fill="#2196F3" filter="url(#glow)">
+        <animate attributeName="opacity" values="0.4;1;0.4" dur="0.8s" repeatCount="indefinite" />
+     </circle>
+  </g>
+
+  <g id="bulb-green">
+     <path d="M0,0 L0,10" stroke="#333" stroke-width="1"/>
+     <circle cx="0" cy="15" r="6" fill="#4CAF50" filter="url(#glow)">
+        <animate attributeName="opacity" values="0.4;1;0.4" dur="1.5s" repeatCount="indefinite" />
+     </circle>
+  </g>
+
+  <g id="bulb-orange">
+     <path d="M0,0 L0,10" stroke="#333" stroke-width="1"/>
+     <circle cx="0" cy="15" r="6" fill="#FF9800" filter="url(#glow)">
+        <animate attributeName="opacity" values="0.4;1;0.4" dur="1.1s" repeatCount="indefinite" />
+     </circle>
+  </g>
+
+  <!-- Distribute Bulbs along the wire approximation -->
+  <use href="#bulb-red" x="50" y="28" />
+  <use href="#bulb-yellow" x="120" y="42" />
+  <use href="#bulb-blue" x="190" y="48" />
+  <use href="#bulb-green" x="260" y="45" />
+  <use href="#bulb-orange" x="330" y="32" />
+  
+  <use href="#bulb-blue" x="400" y="20" />
+  
+  <use href="#bulb-red" x="470" y="28" />
+  <use href="#bulb-yellow" x="540" y="42" />
+  <use href="#bulb-green" x="610" y="48" />
+  <use href="#bulb-orange" x="680" y="45" />
+  <use href="#bulb-blue" x="750" y="32" />
+
+</svg>

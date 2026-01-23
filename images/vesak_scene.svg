@@ -1,0 +1,71 @@
+<svg width="400" height="400" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="flameGrad" cx="50%" cy="80%" r="50%">
+      <stop offset="0%" stop-color="#FFF59D" /> <!-- Core -->
+      <stop offset="40%" stop-color="#FF9800" /> <!-- Middle -->
+      <stop offset="100%" stop-color="#FF3D00" stop-opacity="0" /> <!-- Edge -->
+    </radialGradient>
+    <filter id="lampGlow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <linearGradient id="lotusPink" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="#F8BBD0"/>
+        <stop offset="100%" stop-color="#FCE4EC"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Water Surface Reflection -->
+  <ellipse cx="200" cy="380" rx="150" ry="10" fill="#0277BD" opacity="0.2"/>
+
+  <!-- Lotus Leaves (Padma Pathra) -->
+  <g transform="translate(50, 350) scale(0.8)">
+      <path d="M0,0 Q-30,-20 0,-40 Q30,-20 0,0" fill="#43A047" stroke="#2E7D32" stroke-width="1"/>
+      <path d="M0,-20 L0,0" stroke="#2E7D32" stroke-width="0.5"/>
+  </g>
+  <g transform="translate(320, 360) scale(0.9) rotate(-10)">
+      <path d="M0,0 Q-35,-25 0,-50 Q35,-25 0,0" fill="#66BB6A" stroke="#2E7D32" stroke-width="1"/>
+  </g>
+
+  <!-- Large Lotus Flower -->
+  <g transform="translate(100, 340)">
+     <!-- Petals Back -->
+     <path d="M0,0 Q-20,-40 0,-60 Q20,-40 0,0" fill="#EC407A" transform="rotate(-30)"/>
+     <path d="M0,0 Q-20,-40 0,-60 Q20,-40 0,0" fill="#EC407A" transform="rotate(30)"/>
+     <!-- Petals Front -->
+     <path d="M0,0 Q-15,-45 0,-70 Q15,-45 0,0" fill="#F06292"/>
+     <path d="M0,0 Q-15,-35 0,-50 Q15,-35 0,0" fill="#F48FB1" transform="rotate(-15)"/>
+     <path d="M0,0 Q-15,-35 0,-50 Q15,-35 0,0" fill="#F48FB1" transform="rotate(15)"/>
+  </g>
+
+  <!-- Clay Lamp (Pahana) -->
+  <g transform="translate(240, 320)">
+      <!-- Lamp Body -->
+      <path d="M-40,0 Q-40,40 0,50 Q40,40 40,0 Q20,10 0,10 Q-20,10 -40,0 Z" fill="#795548" stroke="#3E2723" stroke-width="2"/>
+      <ellipse cx="0" cy="0" rx="40" ry="8" fill="#5D4037" />
+      <ellipse cx="0" cy="2" rx="35" ry="6" fill="#8D6E63" /> <!-- Oil -->
+      
+      <!-- Wick -->
+      <path d="M-35,0 L-45,-5" stroke="#3E2723" stroke-width="3" stroke-linecap="round"/>
+      
+      <!-- Flame -->
+      <path d="M-45,-5 Q-40,-25 -45,-40 Q-50,-25 -45,-5" fill="url(#flameGrad)" filter="url(#lampGlow)">
+          <animate attributeName="d" values="M-45,-5 Q-40,-25 -45,-40 Q-50,-25 -45,-5; M-45,-5 Q-38,-28 -43,-42 Q-52,-22 -45,-5; M-45,-5 Q-40,-25 -45,-40 Q-50,-25 -45,-5" dur="0.2s" repeatCount="indefinite" />
+          <animate attributeName="opacity" values="0.8;1;0.8" dur="0.5s" repeatCount="indefinite"/>
+      </path>
+  </g>
+
+  <!-- Fireflies (Animated dots) -->
+  <circle cx="150" cy="250" r="2" fill="#FFF176" filter="url(#lampGlow)">
+      <animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite" begin="0.5s"/>
+      <animate attributeName="cy" values="250;240;250" dur="4s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="300" cy="280" r="1.5" fill="#FFF176" filter="url(#lampGlow)">
+      <animate attributeName="opacity" values="0;1;0" dur="3s" repeatCount="indefinite" begin="1s"/>
+  </circle>
+
+</svg>
