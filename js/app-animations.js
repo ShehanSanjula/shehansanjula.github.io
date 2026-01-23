@@ -55,14 +55,12 @@ document.addEventListener("DOMContentLoaded", function () {
         var santaContainer = document.createElement('div');
         santaContainer.id = 'santa-container';
         santaContainer.style.position = 'fixed';
-        santaContainer.style.bottom = '20px'; // Position at bottom
-        santaContainer.style.right = '20px';  // Position at right
         santaContainer.style.zIndex = '9999';
         santaContainer.style.pointerEvents = 'none'; // Ensure it doesn't block clicks
 
         var santaImg = document.createElement('img');
         // Animated GIF from Pixabay
-        santaImg.src = 'https://cdn.pixabay.com/animation/2022/12/05/10/47/10-47-58-930_512.gif';
+        santaImg.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Santa_Claus_reindeer_sleigh.svg/640px-Santa_Claus_reindeer_sleigh.svg.png';
         santaImg.style.width = '300px';
         santaImg.style.height = 'auto';
 
@@ -73,17 +71,15 @@ document.addEventListener("DOMContentLoaded", function () {
         // Inject CSS for animation
         var style = document.createElement('style');
         style.innerHTML = `
-            @keyframes santaSway {
-                0% { transform: rotate(0deg); }
-                25% { transform: rotate(-2deg); }
-                75% { transform: rotate(2deg); }
-                100% { transform: rotate(0deg); }
+            @keyframes santaFloat {
+                0% { transform: translateY(0); }
+                50% { transform: translateY(-10px); }
+                100% { transform: translateY(0); }
             }
             #santa-container {
-                right: 20px;
+                left: 110px; /* Next to the tree (which is left: 20px + width 80px + margin) */
                 bottom: 20px;
-                animation: santaSway 4s ease-in-out infinite;
-                transform-origin: bottom center;
+                animation: santaFloat 3s ease-in-out infinite;
             }
             #santa-container:hover {
                 transform: scale(1.1);
@@ -91,8 +87,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 animation: none;
             }
             @media (max-width: 768px) {
-                #santa-container img { width: 120px !important; }
-                #santa-container { bottom: 10px; right: 10px; }
+                #santa-container img { width: 100px !important; }
+                #santa-container { bottom: 10px; left: 80px; }
             }
         `;
         document.head.appendChild(style);
