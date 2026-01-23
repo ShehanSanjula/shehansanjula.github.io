@@ -266,14 +266,14 @@ document.addEventListener("DOMContentLoaded", function () {
         lightString.style.pointerEvents = 'none';
         container.appendChild(lightString);
 
-        // 2. Vesak Lanterns (Hanging from "available" spots - corners)
+        // 2. Vesak Lanterns (Lowered to avoid crashing with header text)
         var lanternConfigs = [
             // Top Left (Octagonal)
-            { type: 'oct', top: '-10px', left: '20px', width: '140px', dur: '5s' },
+            { type: 'oct', top: '140px', left: '20px', width: '140px', dur: '5s' },
             // Top Right (Bucket Style - Pink)
-            { type: 'bucket', top: '-20px', right: '30px', width: '120px', dur: '6s' },
-            // Middle-ish Left (Bucket)
-            { type: 'bucket', top: '10px', left: '180px', width: '90px', dur: '4.5s' }
+            { type: 'bucket', top: '130px', right: '30px', width: '120px', dur: '6s' },
+            // Middle Left (Bucket)
+            { type: 'bucket', top: '180px', left: '180px', width: '90px', dur: '4.5s' }
         ];
 
         lanternConfigs.forEach(function (conf, index) {
