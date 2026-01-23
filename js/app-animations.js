@@ -150,20 +150,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // 2. Extra Detailed Flowers (Lush effect)
         var flowerPositions = [
-            { bottom: '20px', left: '200px', width: '70px', rotate: '15deg' },
-            { bottom: '150px', left: '280px', width: '60px', rotate: '-10deg' },
-            { bottom: '80px', left: '50px', width: '55px', rotate: '-20deg' },
-            { bottom: '230px', left: '220px', width: '65px', rotate: '5deg' }
+            { bottom: '5px', left: '40px', width: '75px', rotate: '-5deg', zIndex: '9999' },   // Stuck at base
+            { bottom: '10px', left: '150px', width: '70px', rotate: '15deg', zIndex: '9999' },  // Stuck at base
+            { bottom: '250px', left: '240px', width: '85px', rotate: '-10deg', zIndex: '9999' }, // Blooming from high branch
+            { bottom: '120px', left: '30px', width: '65px', rotate: '-20deg', zIndex: '10001' } // Coming from mid branch
         ];
 
         flowerPositions.forEach(function (pos, index) {
             var f = document.createElement('img');
-            f.src = 'images/erabadu.svg?v=2';
+            f.src = 'images/erabadu.svg?v=3';
             f.style.position = 'fixed';
             f.style.bottom = pos.bottom;
             f.style.left = pos.left;
             f.style.width = pos.width;
-            f.style.zIndex = '9999';
+            f.style.zIndex = pos.zIndex || '9999';
             f.style.transform = 'rotate(' + pos.rotate + ')';
             f.className = 'extra-flower-cluster';
             container.appendChild(f);
@@ -171,13 +171,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // 3. Koha (Asian Koel)
         var bird = document.createElement('img');
-        bird.src = 'images/koha.svg?v=2';
+        bird.src = 'images/koha.svg?v=3';
         bird.style.position = 'fixed';
         // Positioned on the main branch
         bird.style.bottom = '160px';
         bird.style.left = '120px';
         bird.style.width = '80px';
-        bird.style.zIndex = '10000'; // Make sure bird is on top
+        bird.style.zIndex = '10000'; // Make sure bird is on top of tree but maybe under some flowers
         bird.id = 'ny-bird';
         container.appendChild(bird);
 
