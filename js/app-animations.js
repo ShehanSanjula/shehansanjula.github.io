@@ -148,31 +148,41 @@ document.addEventListener("DOMContentLoaded", function () {
         tree.id = 'ny-tree';
         container.appendChild(tree);
 
-        // 1.5 Small Plant beneath the tree
-        var smallPlant = document.createElement('img');
-        smallPlant.src = 'images/small_plant.svg?v=4';
-        smallPlant.style.position = 'fixed';
-        smallPlant.style.bottom = '0px';
-        smallPlant.style.left = '60px';
-        smallPlant.style.width = '80px';
-        smallPlant.style.zIndex = '9999';
-        smallPlant.id = 'ny-small-plant';
-        container.appendChild(smallPlant);
+        // 1.5 Small Plants beneath the tree (lush undergrowth)
+        var plantPositions = [
+            { bottom: '0px', left: '60px', width: '80px', rotate: '0deg' },
+            { bottom: '-5px', left: '10px', width: '60px', rotate: '-10deg' },
+            { bottom: '5px', left: '120px', width: '70px', rotate: '15deg' }
+        ];
 
-        // 2. Extra Detailed Flowers (Lush effect)
+        plantPositions.forEach(function (pos, index) {
+            var p = document.createElement('img');
+            p.src = 'images/small_plant.svg?v=5';
+            p.style.position = 'fixed';
+            p.style.bottom = pos.bottom;
+            p.style.left = pos.left;
+            p.style.width = pos.width;
+            p.style.zIndex = '9999';
+            p.style.transform = 'rotate(' + pos.rotate + ')';
+            p.className = 'extra-plant-base';
+            container.appendChild(p);
+        });
+
+        // 2. Extra Detailed Flowers (Corner decorations)
         var flowerPositions = [
-            { bottom: '30px', left: '75px', width: '50px', rotate: '-10deg', zIndex: '10001' },  // Blooming from small plant top
-            { bottom: '10px', left: '40px', width: '55px', rotate: '5deg', zIndex: '10001' },   // Blooming from small plant left
-            { bottom: '250px', left: '240px', width: '85px', rotate: '-10deg', zIndex: '9999' }, // Blooming from high branch
-            { bottom: '120px', left: '30px', width: '65px', rotate: '-20deg', zIndex: '10001' } // Coming from mid branch
+            { top: '20px', left: '20px', width: '80px', rotate: '160deg', zIndex: '9999' },    // Top Left - hanging down
+            { top: '80px', right: '150px', width: '70px', rotate: '200deg', zIndex: '9999' }, // Top Right area - hanging
+            { bottom: '20px', right: '20px', width: '90px', rotate: '0deg', zIndex: '9999' }   // Bottom Right - growing up
         ];
 
         flowerPositions.forEach(function (pos, index) {
             var f = document.createElement('img');
-            f.src = 'images/erabadu.svg?v=4';
+            f.src = 'images/erabadu.svg?v=5';
             f.style.position = 'fixed';
-            f.style.bottom = pos.bottom;
-            f.style.left = pos.left;
+            if (pos.top) f.style.top = pos.top;
+            if (pos.bottom) f.style.bottom = pos.bottom;
+            if (pos.left) f.style.left = pos.left;
+            if (pos.right) f.style.right = pos.right;
             f.style.width = pos.width;
             f.style.zIndex = pos.zIndex || '9999';
             f.style.transform = 'rotate(' + pos.rotate + ')';
