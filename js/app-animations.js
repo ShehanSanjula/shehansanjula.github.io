@@ -183,7 +183,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // 1. Erabadu Flower
         var flower = document.createElement('img');
-        flower.src = 'images/erabadu.png';
+        flower.src = 'images/erabadu.svg';
         flower.style.position = 'fixed';
         flower.style.bottom = '20px';
         flower.style.left = '20px';
@@ -196,7 +196,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // 2. Koha (Asian Koel)
         var bird = document.createElement('img');
-        bird.src = 'images/koha.png';
+        bird.src = 'images/koha.svg';
         bird.style.position = 'fixed';
         bird.style.bottom = '100px';
         bird.style.left = '50px';
