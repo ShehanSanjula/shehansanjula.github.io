@@ -48,6 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function addSanta() {
+        console.log("Adding Santa Animation");
         // Prevent duplicate Santa
         if (document.getElementById('santa-container')) return;
 
@@ -76,7 +77,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
             #santa-container {
                 right: 0;
-                animation: flySanta 20s linear infinite;
+                animation: flySanta 15s linear infinite;
             }
             @media (max-width: 768px) {
                 #santa-container img { width: 150px !important; }
@@ -87,6 +88,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function addChristmasDecorations() {
+        console.log("Adding Christmas Decorations (Tree + Greeting)");
         if (document.getElementById('xmas-tree')) return;
 
         // 1. Christmas Tree (Bottom Left)
