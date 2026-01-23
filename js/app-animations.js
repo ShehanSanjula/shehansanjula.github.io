@@ -23,47 +23,36 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function initChristmasAnimation() {
+        console.log("Initializing Christmas Animation");
         // ... (Same as before)
-        console.log("Initializing Christmas Animation (Snow + Santa)");
-
         if (!document.getElementById('snow')) {
             var snowCanvas = document.createElement('canvas');
             snowCanvas.id = 'snow';
             document.body.appendChild(snowCanvas);
         }
-
         var script = document.createElement('script');
         script.src = "js/white-particles.js";
         script.async = true;
         document.body.appendChild(script);
-
         addSanta();
         addChristmasDecorations();
     }
 
     function addSanta() {
-        console.log("Adding Santa Animation");
         if (document.getElementById('santa-container')) return;
-
         var santaContainer = document.createElement('div');
         santaContainer.id = 'santa-container';
         santaContainer.style.position = 'fixed';
         santaContainer.style.zIndex = '9999';
         santaContainer.style.pointerEvents = 'none';
-
         var santaImg = document.createElement('img');
         santaImg.src = 'https://upload.wikimedia.org/wikipedia/commons/6/6c/Santa_Claus_reindeer_sleigh.svg';
         santaImg.style.width = '300px';
         santaImg.style.height = 'auto';
         santaImg.style.filter = 'brightness(0) invert(1)';
-
-        santaImg.onerror = function () {
-            this.style.display = 'none';
-        };
-
+        santaImg.onerror = function () { this.style.display = 'none'; };
         santaContainer.appendChild(santaImg);
         document.body.appendChild(santaContainer);
-
         var style = document.createElement('style');
         style.innerHTML = `
             @keyframes santaFloat {
@@ -90,9 +79,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function addChristmasDecorations() {
-        console.log("Adding Christmas Decorations");
         if (document.getElementById('xmas-tree')) return;
-
         var tree = document.createElement('img');
         tree.src = 'https://img.icons8.com/color/96/christmas-tree.png';
         tree.id = 'xmas-tree';
@@ -101,11 +88,7 @@ document.addEventListener("DOMContentLoaded", function () {
         tree.style.left = '20px';
         tree.style.width = '80px';
         tree.style.zIndex = '9998';
-        tree.style.cursor = 'pointer';
-        tree.title = 'Merry Christmas!';
-
         document.body.appendChild(tree);
-
         var greeting = document.createElement('div');
         greeting.innerHTML = '🎄 Merry Christmas 🎄';
         greeting.style.position = 'fixed';
@@ -119,10 +102,7 @@ document.addEventListener("DOMContentLoaded", function () {
         greeting.style.fontWeight = 'bold';
         greeting.style.zIndex = '9998';
         greeting.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
-        greeting.style.fontSize = '14px';
-
         document.body.appendChild(greeting);
-
         var style = document.createElement('style');
         style.innerHTML = `
             @keyframes treeSway {
@@ -135,11 +115,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 animation: treeSway 3s ease-in-out infinite;
                 transform-origin: bottom center;
             }
-            #xmas-tree:hover {
-                transform: scale(1.1);
-                transition: transform 0.3s;
-                animation: none;
-            }
             @media (max-width: 768px) {
                 #xmas-tree { width: 60px; bottom: 10px; left: 10px; }
                 div[style*="Merry Christmas"] { display: none; } 
@@ -149,20 +124,20 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function initNewYearAnimation() {
-        console.log("Initializing New Year Animation (Tree + Koha + Falling Flowers)");
+        console.log("Initializing New Year Animation (Tree + Koha + Butterfly)");
         addNewYearDecorations();
-        addFallingPetals();
+        addButterflyAnimation();
         initDefaultParticles();
     }
 
     function addNewYearDecorations() {
-        console.log("Adding New Year Decorations (Tree Scene + Extra Flowers)");
+        console.log("Adding New Year Decorations (Tree Scene)");
         if (document.getElementById('new-year-deco')) return;
 
         var container = document.createElement('div');
         container.id = 'new-year-deco';
 
-        // 1. Erabadu Tree (Base)
+        // 1. Erabadu Tree (High Quality)
         var tree = document.createElement('img');
         tree.src = 'images/erabadu_tree.svg';
         tree.style.position = 'fixed';
@@ -173,46 +148,11 @@ document.addEventListener("DOMContentLoaded", function () {
         tree.id = 'ny-tree';
         container.appendChild(tree);
 
-        // 2. Extra Beautiful Flowers (Placed distinctly around)
-        // Flower A (Base Right)
-        var flowerA = document.createElement('img');
-        flowerA.src = 'images/erabadu.svg';
-        flowerA.style.position = 'fixed';
-        flowerA.style.bottom = '10px';
-        flowerA.style.left = '220px';
-        flowerA.style.width = '70px';
-        flowerA.style.zIndex = '9998';
-        flowerA.style.transform = 'rotate(10deg)';
-        flowerA.className = 'extra-flower';
-        container.appendChild(flowerA);
-
-        // Flower B (Mid Branch)
-        var flowerB = document.createElement('img');
-        flowerB.src = 'images/erabadu.svg';
-        flowerB.style.position = 'fixed';
-        flowerB.style.bottom = '180px';
-        flowerB.style.left = '320px';
-        flowerB.style.width = '60px'; // Slightly smaller
-        flowerB.style.zIndex = '9998';
-        flowerB.style.transform = 'rotate(-10deg)';
-        flowerB.className = 'extra-flower';
-        container.appendChild(flowerB);
-
-        // Flower C (Base Left/Low)
-        var flowerC = document.createElement('img');
-        flowerC.src = 'images/erabadu.svg';
-        flowerC.style.position = 'fixed';
-        flowerC.style.bottom = '40px';
-        flowerC.style.left = '50px';
-        flowerC.style.width = '50px';
-        flowerC.style.zIndex = '9999'; // On top of tree trunk
-        flowerC.className = 'extra-flower';
-        container.appendChild(flowerC);
-
-        // 3. Koha (Asian Koel)
+        // 2. Koha (Asian Koel)
         var bird = document.createElement('img');
         bird.src = 'images/koha.svg';
         bird.style.position = 'fixed';
+        // Positioned on the main branch
         bird.style.bottom = '160px';
         bird.style.left = '120px';
         bird.style.width = '80px';
@@ -220,7 +160,7 @@ document.addEventListener("DOMContentLoaded", function () {
         bird.id = 'ny-bird';
         container.appendChild(bird);
 
-        // 4. Greeting
+        // 3. Greeting
         var greeting = document.createElement('div');
         greeting.innerHTML = '🌞 Suba Aluth Avuruddak Wewa 🌞';
         greeting.style.position = 'fixed';
@@ -249,51 +189,48 @@ document.addEventListener("DOMContentLoaded", function () {
                 0%, 100% { transform: translateY(0); }
                 50% { transform: translateY(-2px) rotate(2deg); }
             }
-            @keyframes flowerFloat {
-                0%, 100% { transform: translateY(0) rotate(0deg); }
-                50% { transform: translateY(-3px) rotate(3deg); }
-            }
             #ny-tree { animation: treeSway 6s ease-in-out infinite; transform-origin: bottom left; }
             #ny-bird { animation: birdIdling 4s ease-in-out infinite; }
-            .extra-flower { animation: flowerFloat 5s ease-in-out infinite; }
             
             @media (max-width: 768px) {
                 #ny-tree { width: 200px; bottom: -10px; left: -10px; }
                 #ny-bird { width: 50px; bottom: 85px; left: 70px; }
-                .extra-flower { display: none; } /* Hide complex extras on mobile to save space */
                 div[style*="Suba Aluth"] { display: none; }
             }
         `;
         document.head.appendChild(style);
     }
 
-    function addFallingPetals() {
-        // Create full falling flowers for beauty
-        var count = 6;
-        for (var i = 0; i < count; i++) {
-            var petal = document.createElement('img');
-            petal.src = 'images/erabadu.svg'; // Use the beautiful flower
-            petal.style.width = '30px';
-            petal.style.height = '30px';
-            petal.style.position = 'fixed';
-            petal.style.top = '-50px';
-            petal.style.zIndex = '9997';
-            petal.style.opacity = '0.9';
-            petal.style.left = Math.random() * 100 + '%';
+    function addButterflyAnimation() {
+        // Butterfly fluttering around the tree
+        var butterfly = document.createElement('img');
+        butterfly.src = 'images/butterfly.svg';
+        butterfly.style.width = '40px';
+        butterfly.style.height = '40px';
+        butterfly.style.position = 'fixed';
+        butterfly.style.zIndex = '10000'; // Top most
+        butterfly.style.bottom = '100px';
+        butterfly.style.left = '50px';
+        butterfly.id = 'ny-butterfly';
 
-            var duration = 6 + Math.random() * 6;
-            var delay = Math.random() * 5;
-
-            petal.style.animation = `fall ${duration}s linear ${delay}s infinite`;
-            document.body.appendChild(petal);
-        }
+        document.body.appendChild(butterfly);
 
         var style = document.createElement('style');
         style.innerHTML = `
-            @keyframes fall {
-                0% { top: -50px; transform: rotate(0deg) translateX(0); opacity: 0; }
-                10% { opacity: 1; }
-                100% { top: 100vh; transform: rotate(360deg) translateX(50px); opacity: 0; }
+            @keyframes butterflyPath {
+                0% { transform: translate(0, 0) rotate(0deg); }
+                25% { transform: translate(100px, -50px) rotate(20deg); }
+                50% { transform: translate(200px, 0px) rotate(0deg); }
+                75% { transform: translate(100px, 50px) rotate(-20deg); }
+                100% { transform: translate(0, 0) rotate(0deg); }
+            }
+             @keyframes wingFlap {
+                0% { opacity: 1; transform: scaleX(1); }
+                50% { opacity: 0.8; transform: scaleX(0.2); } /* Faux flap */
+                100% { opacity: 1; transform: scaleX(1); }
+            }
+            #ny-butterfly {
+                animation: butterflyPath 10s ease-in-out infinite;
             }
         `;
         document.head.appendChild(style);
