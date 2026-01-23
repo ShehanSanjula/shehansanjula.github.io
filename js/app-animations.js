@@ -139,7 +139,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // 1. Erabadu Tree (High Quality)
         var tree = document.createElement('img');
-        tree.src = 'images/erabadu_tree.svg?v=4';
+        tree.src = 'images/erabadu_tree.svg?v=5';
         tree.style.position = 'fixed';
         tree.style.bottom = '-20px';
         tree.style.left = '-20px';
@@ -169,7 +169,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // 2. Extra Detailed Flower (Rooted in Bottom-Left Corner)
         var flower = document.createElement('img');
-        flower.src = 'images/erabadu.svg?v=6';
+        flower.src = 'images/erabadu.svg?v=7';
         flower.style.position = 'fixed';
         flower.style.bottom = '-20px';
         flower.style.left = '-15px';

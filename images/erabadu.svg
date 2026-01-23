@@ -1,50 +1,67 @@
 <svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
   <defs>
+    <!-- Richer Petal Gradient -->
     <linearGradient id="petalGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#FF4D4D" />
-      <stop offset="100%" stop-color="#CC0000" />
+      <stop offset="0%" stop-color="#FF5252" />
+      <stop offset="40%" stop-color="#D32F2F" />
+      <stop offset="100%" stop-color="#8B0000" />
     </linearGradient>
+    
+    <!-- Deep Gradient for Leaves -->
+    <linearGradient id="leafGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#66BB6A" />
+      <stop offset="100%" stop-color="#1B5E20" />
+    </linearGradient>
+
+    <!-- Stem Gradient -->
     <linearGradient id="stemGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#4CAF50" />
+      <stop offset="0%" stop-color="#4E342E" />
       <stop offset="100%" stop-color="#2E7D32" />
     </linearGradient>
   </defs>
   
   <!-- Stem -->
-  <path d="M100,180 Q120,140 100,100" stroke="url(#stemGrad)" stroke-width="8" fill="none"/>
-  <path d="M100,100 Q80,80 60,90" stroke="url(#stemGrad)" stroke-width="4" fill="none"/>
-  <path d="M100,120 Q130,110 140,90" stroke="url(#stemGrad)" stroke-width="4" fill="none"/>
+  <path d="M100,180 Q125,145 105,105" stroke="url(#stemGrad)" stroke-width="10" fill="none" stroke-linecap="round"/>
+  <path d="M105,105 Q85,85 65,95" stroke="url(#stemGrad)" stroke-width="5" fill="none"/>
+  <path d="M105,125 Q135,115 145,95" stroke="url(#stemGrad)" stroke-width="5" fill="none"/>
 
-  <!-- Leaf -->
-  <path d="M110,130 Q140,140 150,120 Q140,150 110,135 Z" fill="#4CAF50"/>
-  <path d="M90,110 Q60,120 50,100 Q60,130 90,115 Z" fill="#4CAF50"/>
+  <!-- Beautiful Leaves -->
+  <g transform="translate(115,135) rotate(15)">
+    <path d="M0,0 Q30,-20 60,0 Q30,20 0,0 Z" fill="url(#leafGrad)"/>
+    <path d="M0,0 Q30,0 58,0" stroke="#81C784" stroke-width="0.5" opacity="0.4"/>
+  </g>
+  <g transform="translate(85,115) rotate(-160)">
+    <path d="M0,0 Q30,-20 60,0 Q30,20 0,0 Z" fill="url(#leafGrad)"/>
+    <path d="M0,0 Q30,0 58,0" stroke="#81C784" stroke-width="0.5" opacity="0.4"/>
+  </g>
 
-  <!-- Flowers (Claw shape) -->
+  <!-- High Quality Flower Cluster -->
   <!-- Flower 1 (Left) -->
-  <g transform="translate(60, 90) rotate(-20)">
-      <path d="M0,0 Q10,-30 40,-40 Q50,-20 30,0 Q10,10 0,0 Z" fill="url(#petalGrad)"/>
-      <path d="M5,5 Q15,-25 45,-35 Q55,-15 35,5 Q15,15 5,5 Z" fill="#D32F2F"/>
-      <!-- Stamen -->
-      <line x1="20" y1="-20" x2="30" y2="-30" stroke="yellow" stroke-width="2"/>
+  <g transform="translate(65, 95) rotate(-25)">
+      <path d="M0,0 Q12,-35 42,-45 Q52,-25 32,5 Q12,15 0,0 Z" fill="url(#petalGrad)"/>
+      <path d="M5,5 Q15,-25 45,-35" fill="none" stroke="#B71C1C" stroke-width="1"/>
+      <circle cx="15" cy="-15" r="2" fill="yellow" opacity="0.8"/>
   </g>
 
   <!-- Flower 2 (Top) -->
-  <g transform="translate(100, 100) rotate(10)">
-      <path d="M0,0 Q5,-40 30,-50 Q40,-30 20,-10 Q5,5 0,0 Z" fill="url(#petalGrad)"/>
-      <path d="M0,0 Q-10,-30 15,-45" fill="none" stroke="#A00" stroke-width="1"/>
-      <!-- Stamen -->
-       <line x1="10" y1="-20" x2="15" y2="-40" stroke="yellow" stroke-width="2"/>
+  <g transform="translate(105, 105) rotate(10)">
+      <path d="M0,0 Q8,-45 35,-55 Q45,-35 25,-15 Q8,8 0,0 Z" fill="url(#petalGrad)"/>
+      <path d="M0,0 Q-10,-35 20,-50" fill="none" stroke="#A00" stroke-width="1"/>
+      <circle cx="8" cy="-25" r="2" fill="yellow" opacity="0.8"/>
   </g>
 
   <!-- Flower 3 (Right) -->
-  <g transform="translate(140, 90) rotate(40)">
-      <path d="M0,0 Q-10,-30 20,-40 Q30,-20 10,0 Q0,10 0,0 Z" fill="url(#petalGrad)"/>
+  <g transform="translate(145, 95) rotate(45)">
+      <path d="M0,0 Q-15,-35 15,-45 Q35,-25 15,5 Q0,15 0,0 Z" fill="url(#petalGrad)"/>
+      <circle cx="0" cy="-20" r="1.5" fill="yellow" opacity="0.8"/>
   </g>
   
-  <!-- Main Central Cluster -->
-  <g transform="translate(100, 80)">
-    <path d="M0,0 C-20,-40 20,-60 40,-30 C30,-10 10,10 0,0 Z" fill="#E53935"/>
-    <path d="M5,5 C-15,-35 25,-55 45,-25" fill="none" stroke="#B71C1C" stroke-width="2"/>
+  <!-- Central Glow -->
+  <g transform="translate(105, 85)">
+    <circle cx="0" cy="0" r="10" fill="#FFC107" opacity="0.2">
+       <animate attributeName="r" values="8;12;8" dur="4s" repeatCount="indefinite" />
+    </circle>
+    <path d="M0,0 C-15,-35 15,-55 35,-25 C25,-5 5,15 0,0 Z" fill="#D32F2F"/>
   </g>
 
 </svg>
