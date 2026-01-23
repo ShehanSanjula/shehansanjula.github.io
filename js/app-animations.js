@@ -60,9 +60,9 @@ document.addEventListener("DOMContentLoaded", function () {
         santaContainer.style.pointerEvents = 'none'; // Ensure it doesn't block clicks
 
         var santaImg = document.createElement('img');
-        // A popular clear silhouette of Santa and Reindeer
-        santaImg.src = 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/191814/sleigh.svg';
-        santaImg.style.width = '300px';
+        // Animated GIF from Pixabay
+        santaImg.src = 'https://cdn.pixabay.com/animation/2022/12/05/10/47/10-47-58-930_512.gif';
+        santaImg.style.width = '200px';
         santaImg.style.height = 'auto';
 
         santaContainer.appendChild(santaImg);
