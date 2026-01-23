@@ -257,14 +257,14 @@ document.addEventListener("DOMContentLoaded", function () {
         // Header height where the white navigation bar ends
         var headerHeight = 75;
 
-        // 1. Vesak Light String (Top Wire) - Placed at the bottom edge of the white header
+        // 1. Vesak Light String (Redesigned Triple Swag)
         var lightString = document.createElement('img');
-        lightString.src = 'images/vesak_lights.svg?v=2';
+        lightString.src = 'images/vesak_lights.svg?v=3';
         lightString.style.position = 'fixed';
-        lightString.style.top = (headerHeight - 20) + 'px'; // Wire (y=20) touches headerHeight
+        lightString.style.top = (headerHeight - 15) + 'px'; // Shallow dips to clear greeting
         lightString.style.left = '0';
         lightString.style.width = '100%';
-        lightString.style.height = '60px';
+        lightString.style.height = '65px';
         lightString.style.zIndex = '9996';
         lightString.style.pointerEvents = 'none';
         container.appendChild(lightString);
