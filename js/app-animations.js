@@ -175,45 +175,36 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function addNewYearDecorations() {
-        console.log("Adding New Year Decorations");
+        console.log("Adding New Year Decorations (Images)");
         if (document.getElementById('new-year-deco')) return;
 
         var container = document.createElement('div');
         container.id = 'new-year-deco';
 
-        // 1. Erabadu Flower (Red Erythrina) - Inline SVG
-        var flowerSvg = '<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">' +
-            '<path d="M50 50 C20 0 80 0 50 50 C100 20 100 80 50 50 C80 100 20 100 50 50 C0 80 0 20 50 50 Z" fill="#D32F2F"/>' +
-            '<circle cx="50" cy="50" r="15" fill="#FFC107"/>' +
-            '</svg>';
-
+        // 1. Erabadu Flower
         var flower = document.createElement('img');
-        flower.src = 'data:image/svg+xml;base64,' + btoa(flowerSvg);
+        flower.src = 'images/erabadu.png';
         flower.style.position = 'fixed';
         flower.style.bottom = '20px';
         flower.style.left = '20px';
-        flower.style.width = '100px';
+        flower.style.width = '120px';
         flower.style.zIndex = '9998';
         flower.id = 'ny-flower';
         flower.title = 'Erabadu Mal';
+        flower.alt = 'Erabadu Flower';
         container.appendChild(flower);
 
-        // 2. Koha (Asian Koel) - Inline SVG
-        var birdSvg = '<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">' +
-            '<path d="M10 50 Q30 80 50 80 Q70 80 90 60 Q95 50 85 45 Q75 40 60 40 Q40 20 10 50 Z" fill="#212121"/>' +
-            '<circle cx="85" cy="48" r="3" fill="#D32F2F"/>' +
-            '<path d="M60 40 Q40 50 20 50" fill="none" stroke="#333" stroke-width="2"/>' +
-            '</svg>';
-
+        // 2. Koha (Asian Koel)
         var bird = document.createElement('img');
-        bird.src = 'data:image/svg+xml;base64,' + btoa(birdSvg);
+        bird.src = 'images/koha.png';
         bird.style.position = 'fixed';
-        bird.style.bottom = '90px';
-        bird.style.left = '40px';
-        bird.style.width = '70px';
+        bird.style.bottom = '100px';
+        bird.style.left = '50px';
+        bird.style.width = '100px';
         bird.style.zIndex = '9999';
         bird.id = 'ny-bird';
         bird.title = 'Koha';
+        bird.alt = 'Koha Bird';
         container.appendChild(bird);
 
         // 3. Greeting
@@ -239,18 +230,17 @@ document.addEventListener("DOMContentLoaded", function () {
         style.innerHTML = `
             @keyframes flowerSway {
                 0%, 100% { transform: rotate(0deg); }
-                50% { transform: rotate(5deg); }
+                50% { transform: rotate(3deg); }
             }
             @keyframes birdHop {
-                0%, 100% { transform: translateY(0) rotate(0deg); }
-                50% { transform: translateY(-5px) rotate(-5deg); }
+                0%, 100% { transform: translateY(0); }
+                50% { transform: translateY(-3px); }
             }
-            #ny-flower { animation: flowerSway 4s ease-in-out infinite; transform-origin: bottom center; }
-            #ny-bird { animation: birdHop 2s ease-in-out infinite; transform-origin: center center; }
+            #ny-flower { animation: flowerSway 5s ease-in-out infinite; transform-origin: bottom center; }
+            #ny-bird { animation: birdHop 3s ease-in-out infinite; }
             @media (max-width: 768px) {
-                #ny-flower { width: 70px; bottom: 10px; left: 10px; }
-                #ny-bird { width: 50px; bottom: 70px; left: 20px; }
-                /* Hide greeting on very small screens */
+                #ny-flower { width: 80px; bottom: 10px; left: 10px; }
+                #ny-bird { width: 60px; bottom: 70px; left: 20px; }
                 div[style*="Suba Aluth"] { display: none; }
             }
         `;
