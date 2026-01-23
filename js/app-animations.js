@@ -266,14 +266,14 @@ document.addEventListener("DOMContentLoaded", function () {
         lightString.style.pointerEvents = 'none';
         container.appendChild(lightString);
 
-        // 2. Vesak Lanterns (Lowered to avoid crashing with header text)
+        // 2. Vesak Lanterns (Lowered significantly to avoid navigation and header name)
         var lanternConfigs = [
             // Top Left (Octagonal)
-            { type: 'oct', top: '140px', left: '20px', width: '140px', dur: '5s' },
+            { type: 'oct', top: '240px', left: '20px', width: '140px', dur: '5s' },
             // Top Right (Bucket Style - Pink)
-            { type: 'bucket', top: '130px', right: '30px', width: '120px', dur: '6s' },
+            { type: 'bucket', top: '220px', right: '30px', width: '120px', dur: '6s' },
             // Middle Left (Bucket)
-            { type: 'bucket', top: '180px', left: '180px', width: '90px', dur: '4.5s' }
+            { type: 'bucket', top: '300px', left: '180px', width: '90px', dur: '4.5s' }
         ];
 
         lanternConfigs.forEach(function (conf, index) {
@@ -305,7 +305,7 @@ document.addEventListener("DOMContentLoaded", function () {
         var greeting = document.createElement('div');
         greeting.innerHTML = '☸️ Pinwara Vesak Mangalyayak Wewa ☸️';
         greeting.style.position = 'fixed';
-        greeting.style.top = '100px'; // Moved down slightly to not overlap lights
+        greeting.style.top = '170px';
         greeting.style.right = '20px';
         greeting.style.color = '#FFF59D';
         greeting.style.background = 'rgba(80, 20, 20, 0.9)';
