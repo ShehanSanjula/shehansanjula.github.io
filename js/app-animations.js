@@ -40,7 +40,11 @@ document.addEventListener("DOMContentLoaded", function () {
         document.body.appendChild(script);
 
         // Add Santa & Reindeer
+        // Add Santa & Reindeer
         addSanta();
+
+        // Add Tree and Decorations
+        addChristmasDecorations();
     }
 
     function addSanta() {
@@ -77,6 +81,68 @@ document.addEventListener("DOMContentLoaded", function () {
             @media (max-width: 768px) {
                 #santa-container img { width: 150px !important; }
                 #santa-container { top: 10%; }
+            }
+        `;
+        document.head.appendChild(style);
+    }
+
+    function addChristmasDecorations() {
+        if (document.getElementById('xmas-tree')) return;
+
+        // 1. Christmas Tree (Bottom Left)
+        var tree = document.createElement('img');
+        tree.src = 'https://img.icons8.com/color/96/christmas-tree.png';
+        tree.id = 'xmas-tree';
+        tree.style.position = 'fixed';
+        tree.style.bottom = '20px';
+        tree.style.left = '20px';
+        tree.style.width = '80px';
+        tree.style.zIndex = '9998';
+        tree.style.cursor = 'pointer';
+        tree.title = 'Merry Christmas!';
+
+        document.body.appendChild(tree);
+
+        // 2. Festive Greeting (Top Right)
+        var greeting = document.createElement('div');
+        greeting.innerHTML = '🎄 Merry Christmas 🎄';
+        greeting.style.position = 'fixed';
+        greeting.style.top = '80px'; // Below navbar if any
+        greeting.style.right = '20px';
+        greeting.style.color = '#d32f2f';
+        greeting.style.background = 'rgba(255,255,255,0.9)';
+        greeting.style.padding = '8px 15px';
+        greeting.style.borderRadius = '20px';
+        greeting.style.fontFamily = 'cursive, sans-serif';
+        greeting.style.fontWeight = 'bold';
+        greeting.style.zIndex = '9998';
+        greeting.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
+        greeting.style.fontSize = '14px';
+
+        document.body.appendChild(greeting);
+
+        // 3. CSS for Tree Sway
+        var style = document.createElement('style');
+        style.innerHTML = `
+            @keyframes treeSway {
+                0% { transform: rotate(0deg); }
+                25% { transform: rotate(2deg); }
+                75% { transform: rotate(-2deg); }
+                100% { transform: rotate(0deg); }
+            }
+            #xmas-tree {
+                animation: treeSway 3s ease-in-out infinite;
+                transform-origin: bottom center;
+            }
+            #xmas-tree:hover {
+                transform: scale(1.1);
+                transition: transform 0.3s;
+                animation: none;
+            }
+            @media (max-width: 768px) {
+                #xmas-tree { width: 60px; bottom: 10px; left: 10px; }
+                /* Hide greeting on very small screens to save space */
+                div[style*="Merry Christmas"] { display: none; } 
             }
         `;
         document.head.appendChild(style);
