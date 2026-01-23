@@ -55,33 +55,44 @@ document.addEventListener("DOMContentLoaded", function () {
         var santaContainer = document.createElement('div');
         santaContainer.id = 'santa-container';
         santaContainer.style.position = 'fixed';
-        santaContainer.style.top = '15%'; // Vertical position
+        santaContainer.style.bottom = '20px'; // Position at bottom
+        santaContainer.style.right = '20px';  // Position at right
         santaContainer.style.zIndex = '9999';
         santaContainer.style.pointerEvents = 'none'; // Ensure it doesn't block clicks
 
         var santaImg = document.createElement('img');
         // Animated GIF from Pixabay
         santaImg.src = 'https://cdn.pixabay.com/animation/2022/12/05/10/47/10-47-58-930_512.gif';
-        santaImg.style.width = '200px';
+        santaImg.style.width = '300px';
         santaImg.style.height = 'auto';
 
         santaContainer.appendChild(santaImg);
         document.body.appendChild(santaContainer);
 
         // Inject CSS for animation
+        // Inject CSS for animation
         var style = document.createElement('style');
         style.innerHTML = `
-            @keyframes flySanta {
-                0% { transform: translateX(100vw); }
-                100% { transform: translateX(-120vw); }
+            @keyframes santaSway {
+                0% { transform: rotate(0deg); }
+                25% { transform: rotate(-2deg); }
+                75% { transform: rotate(2deg); }
+                100% { transform: rotate(0deg); }
             }
             #santa-container {
-                right: 0;
-                animation: flySanta 15s linear infinite;
+                right: 20px;
+                bottom: 20px;
+                animation: santaSway 4s ease-in-out infinite;
+                transform-origin: bottom center;
+            }
+            #santa-container:hover {
+                transform: scale(1.1);
+                transition: transform 0.3s;
+                animation: none;
             }
             @media (max-width: 768px) {
-                #santa-container img { width: 150px !important; }
-                #santa-container { top: 10%; }
+                #santa-container img { width: 120px !important; }
+                #santa-container { bottom: 10px; right: 10px; }
             }
         `;
         document.head.appendChild(style);
