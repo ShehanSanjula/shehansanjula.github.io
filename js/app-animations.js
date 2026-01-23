@@ -303,7 +303,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // 4. Greeting
         var greeting = document.createElement('div');
-        greeting.innerHTML = '☸️ Pinwara Vesak Mangalyayak Wewa ☸️';
+        greeting.innerHTML = '☸️ Pinwantha Vesak Mangalyayak Wewa ☸️';
         greeting.style.position = 'fixed';
         greeting.style.top = '170px';
         greeting.style.right = '20px';
