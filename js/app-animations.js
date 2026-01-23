@@ -168,29 +168,17 @@ document.addEventListener("DOMContentLoaded", function () {
             container.appendChild(p);
         });
 
-        // 2. Extra Detailed Flowers (Corner decorations)
-        var flowerPositions = [
-            { bottom: '-15px', left: '-10px', width: '100px', rotate: '0deg', zIndex: '10001' }, // Bottom Left Corner - Rooted
-            { top: '20px', left: '20px', width: '85px', rotate: '160deg', zIndex: '9999' },      // Top Left - hanging
-            { top: '20px', right: '20px', width: '90px', rotate: '200deg', zIndex: '9999' },     // Top Right - hanging
-            { bottom: '20px', right: '20px', width: '100px', rotate: '0deg', zIndex: '9999' }   // Bottom Right - growing up
-        ];
-
-        flowerPositions.forEach(function (pos, index) {
-            var f = document.createElement('img');
-            f.src = 'images/erabadu.svg?v=6';
-            f.style.position = 'fixed';
-            if (pos.top) f.style.top = pos.top;
-            if (pos.bottom) f.style.bottom = pos.bottom;
-            if (pos.left) f.style.left = pos.left;
-            if (pos.right) f.style.right = pos.right;
-            f.style.width = pos.width;
-            f.style.zIndex = pos.zIndex || '9999';
-            f.style.transformOrigin = 'bottom left';
-            f.style.transform = 'rotate(' + pos.rotate + ')';
-            f.className = 'extra-flower-cluster';
-            container.appendChild(f);
-        });
+        // 2. Extra Detailed Flower (Rooted in Bottom-Left Corner)
+        var flower = document.createElement('img');
+        flower.src = 'images/erabadu.svg?v=6';
+        flower.style.position = 'fixed';
+        flower.style.bottom = '-15px';
+        flower.style.left = '-10px';
+        flower.style.width = '100px';
+        flower.style.zIndex = '10001';
+        flower.style.transformOrigin = 'bottom left';
+        flower.className = 'extra-flower-cluster';
+        container.appendChild(flower);
 
         // 3. Koha (Asian Koel)
         var bird = document.createElement('img');
@@ -279,7 +267,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 100% { opacity: 1; transform: scaleX(1); }
             }
             #ny-butterfly {
-                animation: butterflyPath 10s ease-in-out infinite;
+                animation: butterflyPath 10s ease-in-out infinite, wingFlap 0.2s ease-in-out infinite;
             }
         `;
         document.head.appendChild(style);
