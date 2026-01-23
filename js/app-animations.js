@@ -139,7 +139,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // 1. Erabadu Tree (High Quality)
         var tree = document.createElement('img');
-        tree.src = 'images/erabadu_tree.svg';
+        tree.src = 'images/erabadu_tree.svg?v=2';
         tree.style.position = 'fixed';
         tree.style.bottom = '-20px';
         tree.style.left = '-20px';
@@ -148,15 +148,36 @@ document.addEventListener("DOMContentLoaded", function () {
         tree.id = 'ny-tree';
         container.appendChild(tree);
 
-        // 2. Koha (Asian Koel)
+        // 2. Extra Detailed Flowers (Lush effect)
+        var flowerPositions = [
+            { bottom: '20px', left: '200px', width: '70px', rotate: '15deg' },
+            { bottom: '150px', left: '280px', width: '60px', rotate: '-10deg' },
+            { bottom: '80px', left: '50px', width: '55px', rotate: '-20deg' },
+            { bottom: '230px', left: '220px', width: '65px', rotate: '5deg' }
+        ];
+
+        flowerPositions.forEach(function (pos, index) {
+            var f = document.createElement('img');
+            f.src = 'images/erabadu.svg?v=2';
+            f.style.position = 'fixed';
+            f.style.bottom = pos.bottom;
+            f.style.left = pos.left;
+            f.style.width = pos.width;
+            f.style.zIndex = '9999';
+            f.style.transform = 'rotate(' + pos.rotate + ')';
+            f.className = 'extra-flower-cluster';
+            container.appendChild(f);
+        });
+
+        // 3. Koha (Asian Koel)
         var bird = document.createElement('img');
-        bird.src = 'images/koha.svg';
+        bird.src = 'images/koha.svg?v=2';
         bird.style.position = 'fixed';
         // Positioned on the main branch
         bird.style.bottom = '160px';
         bird.style.left = '120px';
         bird.style.width = '80px';
-        bird.style.zIndex = '9999';
+        bird.style.zIndex = '10000'; // Make sure bird is on top
         bird.id = 'ny-bird';
         container.appendChild(bird);
 
@@ -189,8 +210,13 @@ document.addEventListener("DOMContentLoaded", function () {
                 0%, 100% { transform: translateY(0); }
                 50% { transform: translateY(-2px) rotate(2deg); }
             }
+            @keyframes flowerSwayLow {
+                0%, 100% { transform: translate(0,0) rotate(0deg); }
+                50% { transform: translate(2px, -2px) rotate(3deg); }
+            }
             #ny-tree { animation: treeSway 6s ease-in-out infinite; transform-origin: bottom left; }
             #ny-bird { animation: birdIdling 4s ease-in-out infinite; }
+            .extra-flower-cluster { animation: flowerSwayLow 5s ease-in-out infinite; }
             
             @media (max-width: 768px) {
                 #ny-tree { width: 200px; bottom: -10px; left: -10px; }
