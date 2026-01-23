@@ -23,6 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function initChristmasAnimation() {
+        // ... (Same as before)
         console.log("Initializing Christmas Animation (Snow + Santa)");
 
         // Create canvas for snow if it doesn't exist
@@ -39,7 +40,6 @@ document.addEventListener("DOMContentLoaded", function () {
         script.async = true;
         document.body.appendChild(script);
 
-        // Add Santa & Reindeer
         // Add Santa & Reindeer
         addSanta();
 
@@ -65,20 +65,13 @@ document.addEventListener("DOMContentLoaded", function () {
         santaImg.style.height = 'auto';
         santaImg.style.filter = 'brightness(0) invert(1)'; // Make it white for dark backgrounds
 
-        // Fallback if image fails (Network block etc.)
         santaImg.onerror = function () {
             this.style.display = 'none';
-            var fallback = document.createElement('div');
-            fallback.innerText = '🦌🦌🛷🎅';
-            fallback.style.fontSize = '40px';
-            fallback.style.color = 'white';
-            santaContainer.appendChild(fallback);
         };
 
         santaContainer.appendChild(santaImg);
         document.body.appendChild(santaContainer);
 
-        // Inject CSS for animation
         // Inject CSS for animation
         var style = document.createElement('style');
         style.innerHTML = `
@@ -127,7 +120,7 @@ document.addEventListener("DOMContentLoaded", function () {
         var greeting = document.createElement('div');
         greeting.innerHTML = '🎄 Merry Christmas 🎄';
         greeting.style.position = 'fixed';
-        greeting.style.top = '80px'; // Below navbar if any
+        greeting.style.top = '80px';
         greeting.style.right = '20px';
         greeting.style.color = '#d32f2f';
         greeting.style.background = 'rgba(255,255,255,0.9)';
@@ -161,7 +154,6 @@ document.addEventListener("DOMContentLoaded", function () {
             }
             @media (max-width: 768px) {
                 #xmas-tree { width: 60px; bottom: 10px; left: 10px; }
-                /* Hide greeting on very small screens to save space */
                 div[style*="Merry Christmas"] { display: none; } 
             }
         `;
@@ -169,42 +161,44 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function initNewYearAnimation() {
-        console.log("Initializing New Year Animation (Koha + Erabadu)");
+        console.log("Initializing New Year Animation (Tree + Koha + Falling Flowers)");
         addNewYearDecorations();
+        addFallingPetals();
         initDefaultParticles();
     }
 
     function addNewYearDecorations() {
-        console.log("Adding New Year Decorations (Images)");
+        console.log("Adding New Year Decorations (Tree Scene)");
         if (document.getElementById('new-year-deco')) return;
 
         var container = document.createElement('div');
         container.id = 'new-year-deco';
 
-        // 1. Erabadu Flower
-        var flower = document.createElement('img');
-        flower.src = 'images/erabadu.svg';
-        flower.style.position = 'fixed';
-        flower.style.bottom = '20px';
-        flower.style.left = '20px';
-        flower.style.width = '120px';
-        flower.style.zIndex = '9998';
-        flower.id = 'ny-flower';
-        flower.title = 'Erabadu Mal';
-        flower.alt = 'Erabadu Flower';
-        container.appendChild(flower);
+        // 1. Erabadu Tree (SVG)
+        var tree = document.createElement('img');
+        tree.src = 'images/erabadu_tree.svg';
+        tree.style.position = 'fixed';
+        tree.style.bottom = '-20px'; // Slightly submerged to look grounded
+        tree.style.left = '-20px';
+        tree.style.width = '350px'; // Grand size
+        tree.style.zIndex = '9998';
+        tree.id = 'ny-tree';
+        tree.title = 'Erabadu Tree';
+        container.appendChild(tree);
 
-        // 2. Koha (Asian Koel)
+        // 2. Koha (Asian Koel) - Perched on tree
         var bird = document.createElement('img');
         bird.src = 'images/koha.svg';
         bird.style.position = 'fixed';
-        bird.style.bottom = '100px';
-        bird.style.left = '50px';
-        bird.style.width = '100px';
+        // Carefully positioned to sit on the main branch of erabadu_tree.svg
+        // Branch is approx at 150,250 in 400x400 viewbox -> ~37% from left, ~62% from top.
+        // With 350px width -> left ~130px.
+        bird.style.bottom = '160px';
+        bird.style.left = '120px';
+        bird.style.width = '80px';
         bird.style.zIndex = '9999';
         bird.id = 'ny-bird';
         bird.title = 'Koha';
-        bird.alt = 'Koha Bird';
         container.appendChild(bird);
 
         // 3. Greeting
@@ -228,24 +222,60 @@ document.addEventListener("DOMContentLoaded", function () {
         // CSS Animations
         var style = document.createElement('style');
         style.innerHTML = `
-            @keyframes flowerSway {
-                0%, 100% { transform: rotate(0deg); }
-                50% { transform: rotate(3deg); }
+            @keyframes treeSway {
+                0% { transform: rotate(0deg); }
+                50% { transform: rotate(1deg); } /* Gentle sway */
+                100% { transform: rotate(0deg); }
             }
-            @keyframes birdHop {
+            @keyframes birdIdling {
                 0%, 100% { transform: translateY(0); }
-                50% { transform: translateY(-3px); }
+                50% { transform: translateY(-2px) rotate(2deg); }
             }
-            #ny-flower { animation: flowerSway 5s ease-in-out infinite; transform-origin: bottom center; }
-            #ny-bird { animation: birdHop 3s ease-in-out infinite; }
+            #ny-tree { animation: treeSway 6s ease-in-out infinite; transform-origin: bottom left; }
+            #ny-bird { animation: birdIdling 4s ease-in-out infinite; }
             @media (max-width: 768px) {
-                #ny-flower { width: 80px; bottom: 10px; left: 10px; }
-                #ny-bird { width: 60px; bottom: 70px; left: 20px; }
+                #ny-tree { width: 200px; bottom: -10px; left: -10px; }
+                #ny-bird { width: 50px; bottom: 85px; left: 70px; } /* Adjusted for smaller tree */
                 div[style*="Suba Aluth"] { display: none; }
             }
         `;
         document.head.appendChild(style);
     }
+
+    function addFallingPetals() {
+        // Create a few falling petals for atmosphere
+        var count = 6;
+        for (var i = 0; i < count; i++) {
+            var petal = document.createElement('div');
+            // Small red petal shape using CSS
+            petal.style.width = '10px';
+            petal.style.height = '10px';
+            petal.style.background = '#FF5252';
+            petal.style.borderRadius = '50% 0';
+            petal.style.position = 'fixed';
+            petal.style.top = '-20px';
+            petal.style.zIndex = '9997';
+            petal.style.opacity = '0.8';
+            petal.style.left = Math.random() * 100 + '%'; // Random X
+
+            // Random animation duration
+            var duration = 5 + Math.random() * 5;
+            var delay = Math.random() * 5;
+
+            petal.style.animation = `fall ${duration}s linear ${delay}s infinite`;
+            document.body.appendChild(petal);
+        }
+
+        var style = document.createElement('style');
+        style.innerHTML = `
+            @keyframes fall {
+                0 % { top: -20px; transform: rotate(0deg) translateX(0); opacity: 1; }
+                100 % { top: 100vh; transform: rotate(360deg) translateX(50px); opacity: 0; }
+            }
+            `;
+        document.head.appendChild(style);
+    }
+
 
     function initDefaultParticles() {
         console.log("Initializing Default Particles");
