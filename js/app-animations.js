@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function initChristmasAnimation() {
-        console.log("Initializing Christmas Animation (Snow)");
+        console.log("Initializing Christmas Animation (Snow + Santa)");
 
         // Create canvas for snow if it doesn't exist
         if (!document.getElementById('snow')) {
@@ -38,6 +38,48 @@ document.addEventListener("DOMContentLoaded", function () {
         script.src = "js/white-particles.js";
         script.async = true;
         document.body.appendChild(script);
+
+        // Add Santa & Reindeer
+        addSanta();
+    }
+
+    function addSanta() {
+        // Prevent duplicate Santa
+        if (document.getElementById('santa-container')) return;
+
+        var santaContainer = document.createElement('div');
+        santaContainer.id = 'santa-container';
+        santaContainer.style.position = 'fixed';
+        santaContainer.style.top = '15%'; // Vertical position
+        santaContainer.style.zIndex = '9999';
+        santaContainer.style.pointerEvents = 'none'; // Ensure it doesn't block clicks
+
+        var santaImg = document.createElement('img');
+        // A popular clear silhouette of Santa and Reindeer
+        santaImg.src = 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/191814/sleigh.svg';
+        santaImg.style.width = '300px';
+        santaImg.style.height = 'auto';
+
+        santaContainer.appendChild(santaImg);
+        document.body.appendChild(santaContainer);
+
+        // Inject CSS for animation
+        var style = document.createElement('style');
+        style.innerHTML = `
+            @keyframes flySanta {
+                0% { transform: translateX(100vw); }
+                100% { transform: translateX(-120vw); }
+            }
+            #santa-container {
+                right: 0;
+                animation: flySanta 20s linear infinite;
+            }
+            @media (max-width: 768px) {
+                #santa-container img { width: 150px !important; }
+                #santa-container { top: 10%; }
+            }
+        `;
+        document.head.appendChild(style);
     }
 
     function initNewYearAnimation() {
