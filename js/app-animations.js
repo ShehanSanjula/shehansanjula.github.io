@@ -170,14 +170,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // 2. Extra Detailed Flowers (Corner decorations)
         var flowerPositions = [
-            { top: '20px', left: '20px', width: '80px', rotate: '160deg', zIndex: '9999' },    // Top Left - hanging down
-            { top: '80px', right: '150px', width: '70px', rotate: '200deg', zIndex: '9999' }, // Top Right area - hanging
-            { bottom: '20px', right: '20px', width: '90px', rotate: '0deg', zIndex: '9999' }   // Bottom Right - growing up
+            { bottom: '-15px', left: '-10px', width: '100px', rotate: '0deg', zIndex: '10001' }, // Bottom Left Corner - Rooted
+            { top: '20px', left: '20px', width: '85px', rotate: '160deg', zIndex: '9999' },      // Top Left - hanging
+            { top: '20px', right: '20px', width: '90px', rotate: '200deg', zIndex: '9999' },     // Top Right - hanging
+            { bottom: '20px', right: '20px', width: '100px', rotate: '0deg', zIndex: '9999' }   // Bottom Right - growing up
         ];
 
         flowerPositions.forEach(function (pos, index) {
             var f = document.createElement('img');
-            f.src = 'images/erabadu.svg?v=5';
+            f.src = 'images/erabadu.svg?v=6';
             f.style.position = 'fixed';
             if (pos.top) f.style.top = pos.top;
             if (pos.bottom) f.style.bottom = pos.bottom;
@@ -185,6 +186,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (pos.right) f.style.right = pos.right;
             f.style.width = pos.width;
             f.style.zIndex = pos.zIndex || '9999';
+            f.style.transformOrigin = 'bottom left';
             f.style.transform = 'rotate(' + pos.rotate + ')';
             f.className = 'extra-flower-cluster';
             container.appendChild(f);
