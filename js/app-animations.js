@@ -11,8 +11,8 @@ document.addEventListener("DOMContentLoaded", function () {
     var isNewYear = (month === 3) || (month === 4);
 
     // DEMO OVERRIDE: Uncomment to force specific seasons for testing
-    isChristmas = true;
-    // isNewYear = true;
+    // isChristmas = true;
+    isNewYear = true;
 
     if (isChristmas) {
         initChristmasAnimation();
@@ -169,10 +169,82 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function initNewYearAnimation() {
-        console.log("Initializing New Year Animation");
-        // Placeholder: For now fallback to default
-        // TODO: Implement specific Sinhala & Hindu New Year animation
+        console.log("Initializing New Year Animation (Koha + Erabadu)");
+        addNewYearDecorations();
         initDefaultParticles();
+    }
+
+    function addNewYearDecorations() {
+        console.log("Adding New Year Decorations");
+        if (document.getElementById('new-year-deco')) return;
+
+        var container = document.createElement('div');
+        container.id = 'new-year-deco';
+
+        // 1. Erabadu Flower (Bottom Left) -> Using Red Hibiscus as closest placeholder
+        var flower = document.createElement('img');
+        flower.src = 'https://img.icons8.com/color/96/hibiscus.png';
+        flower.style.position = 'fixed';
+        flower.style.bottom = '20px';
+        flower.style.left = '20px';
+        flower.style.width = '100px';
+        flower.style.zIndex = '9998';
+        flower.id = 'ny-flower';
+        flower.title = 'Erabadu Mal (Seasonal)';
+        container.appendChild(flower);
+
+        // 2. Koha (Asian Koel) - Black bird -> Using Raven/Blackbird placeholder
+        var bird = document.createElement('img');
+        bird.src = 'https://img.icons8.com/color/96/raven.png';
+        bird.style.position = 'fixed';
+        bird.style.bottom = '100px';
+        bird.style.left = '40px';
+        bird.style.width = '70px';
+        bird.style.zIndex = '9999';
+        bird.style.transform = 'scaleX(-1)'; // Face right
+        bird.id = 'ny-bird';
+        bird.title = 'Koha (Asian Koel)';
+        container.appendChild(bird);
+
+        // 3. Greeting
+        var greeting = document.createElement('div');
+        greeting.innerHTML = '🌞 Suba Aluth Avuruddak Wewa 🌞';
+        greeting.style.position = 'fixed';
+        greeting.style.top = '80px';
+        greeting.style.right = '20px';
+        greeting.style.color = '#d32f2f'; // Red
+        greeting.style.background = 'rgba(255,235,59,0.9)'; // Bright Yellow
+        greeting.style.padding = '8px 15px';
+        greeting.style.borderRadius = '20px';
+        greeting.style.fontFamily = 'cursive, sans-serif';
+        greeting.style.fontWeight = 'bold';
+        greeting.style.zIndex = '9998';
+        greeting.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
+        container.appendChild(greeting);
+
+        document.body.appendChild(container);
+
+        // CSS Animations
+        var style = document.createElement('style');
+        style.innerHTML = `
+            @keyframes flowerSway {
+                0%, 100% { transform: rotate(0deg); }
+                50% { transform: rotate(5deg); }
+            }
+            @keyframes birdHop {
+                0%, 100% { transform: translateY(0) scaleX(-1); }
+                50% { transform: translateY(-5px) scaleX(-1); }
+            }
+            #ny-flower { animation: flowerSway 4s ease-in-out infinite; transform-origin: bottom center; }
+            #ny-bird { animation: birdHop 2s ease-in-out infinite; }
+            @media (max-width: 768px) {
+                #ny-flower { width: 70px; bottom: 10px; left: 10px; }
+                #ny-bird { width: 50px; bottom: 70px; left: 20px; }
+                /* Hide greeting on very small screens */
+                div[style*="Suba Aluth"] { display: none; }
+            }
+        `;
+        document.head.appendChild(style);
     }
 
     function initDefaultParticles() {
