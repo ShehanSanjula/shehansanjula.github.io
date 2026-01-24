@@ -7,7 +7,7 @@
 ![CSS](https://img.shields.io/badge/Language-CSS-blue)
 
 ### Stable Release
-![version](https://img.shields.io/badge/Version-v7.1_--_2026_festive_update-informational?style=flat&logoColor=white&color=2bbc8a)
+![version](https://img.shields.io/badge/Version-v8.0_--_2026_stable-informational?style=flat&logoColor=white&color=2bbc8a)
 
 ### Festive Themes Included
 ![Christmas](https://img.shields.io/badge/Theme-Christmas_(Nov_1_--_Dec_31)-red?logo=christmas-tree)
