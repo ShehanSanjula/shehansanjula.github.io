@@ -257,17 +257,9 @@ document.addEventListener("DOMContentLoaded", function () {
         // Header height where the white navigation bar ends
         var headerHeight = 75;
 
-        // 1. Vesak Light String (Redesigned Triple Swag with Realistic Bulbs)
-        var lightString = document.createElement('img');
-        lightString.src = 'images/vesak_lights.svg?v=5';
-        lightString.style.position = 'fixed';
-        lightString.style.top = (headerHeight - 20) + 'px';
-        lightString.style.left = '0';
-        lightString.style.width = '100%';
-        lightString.style.height = '70px';
-        lightString.style.zIndex = '9996';
-        lightString.style.pointerEvents = 'none';
-        container.appendChild(lightString);
+        /* 
+           1. Vesak light string removed as per user request.
+        */
 
         // 2. Vesak Lanterns (Hanging from the same header level)
         var lanternConfigs = [
@@ -323,23 +315,24 @@ document.addEventListener("DOMContentLoaded", function () {
         scene.id = 'vesak-scene-bottom';
         container.appendChild(scene);
 
-        // 4. Greeting (Themed Match: Teal/Dark)
+        // 4. Greeting (Updated: Gold Text for Vesak, standard Dark BG)
         var greeting = document.createElement('div');
         greeting.innerHTML = '☸️ Pinwantha Vesak Mangalyayak Wewa ☸️';
         greeting.style.position = 'fixed';
         greeting.style.top = '80px';
         greeting.style.right = '20px';
-        // Matching theme: Dark background, premium white text, teal accent glow
-        greeting.style.color = '#ffffff';
-        greeting.style.background = 'rgba(10, 10, 10, 0.85)';
-        greeting.style.border = '1px solid rgba(30, 187, 163, 0.3)'; // Teal border hint
+
+        // Revised Theme: Festive Gold Text on Dark Modern Background
+        greeting.style.color = '#FFD54F'; // Radiant Gold
+        greeting.style.background = 'rgba(20, 20, 20, 0.9)'; // Deep dark background
+        greeting.style.border = '1px solid rgba(255, 213, 79, 0.5)'; // Gold border hint
         greeting.style.padding = '8px 15px';
         greeting.style.borderRadius = '20px';
-        greeting.style.fontFamily = "'Poppins', sans-serif"; // Using site font
+        greeting.style.fontFamily = "'Poppins', sans-serif";
         greeting.style.fontSize = '14px';
         greeting.style.fontWeight = '500';
         greeting.style.zIndex = '9997';
-        greeting.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.5)';
+        greeting.style.boxShadow = '0 4px 15px rgba(255, 215, 0, 0.2)'; // Subtle gold glow
         greeting.style.backdropFilter = 'blur(5px)';
         container.appendChild(greeting);
 
