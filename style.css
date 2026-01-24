@@ -46,24 +46,47 @@ div.desc {
   box-sizing: border-box;
 }
 
-.responsive {
-  padding: 0 3px;
-  float: left;
-  width: 16%;
+/* Flexbox Refactor for Badges */
+.badges-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px; /* Consistent gap */
+  margin-top: 20px;
 }
 
-@media only screen and (max-width: 700px) {
-  .responsive {
-    width: 49.99999%;
-    margin: 6px 0;
-  }
+.badge-item {
+  /* No fixed width, let content determine or max-width */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
 }
 
-@media only screen and (max-width: 500px) {
-  .responsive {
-    width: 45%;
-    margin: 3px 2px;
-  }
+.badge-item .gallery {
+  border: 1px solid #ccc;
+  padding: 10px;
+  background: #fff;
+  border-radius: 8px; /* Slight roundness for modernization */
+  transition: all 0.3s ease;
+}
+
+.badge-item .gallery:hover {
+  border-color: #1EBBA3; /* Theme color */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transform: translateY(-5px);
+}
+
+.badge-item img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.badge-item .desc {
+  padding-top: 10px;
+  font-size: 14px;
+  color: #666;
 }
 
 .clearfix:after {
