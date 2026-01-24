@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // DEMO OVERRIDE: Uncomment to force specific seasons for testing
     // isChristmas = true;
     // isNewYear = true;
-    isVesak = true;
+    // isVesak = true; 
 
     if (isChristmas) {
         initChristmasAnimation();
@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", function () {
         tree.style.zIndex = '9998';
         document.body.appendChild(tree);
         var greeting = document.createElement('div');
-        greeting.innerHTML = '🎄 Merry Christmas 🎄';
+        greeting.innerHTML = '🎄 Merry Christmas! 🎄';
         greeting.style.position = 'fixed';
         greeting.style.top = '80px';
         greeting.style.right = '20px';
@@ -198,7 +198,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // 3. Greeting
         var greeting = document.createElement('div');
-        greeting.innerHTML = '🌞 Suba Aluth Avuruddak Wewa 🌞';
+        greeting.innerHTML = '🌞 Suba Aluth Avuruddak Wewa! 🌞';
         greeting.style.position = 'fixed';
         greeting.style.top = '80px';
         greeting.style.right = '20px';
@@ -317,7 +317,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // 4. Greeting (Updated: Gold Text for Vesak, standard Dark BG)
         var greeting = document.createElement('div');
-        greeting.innerHTML = '☸️ Pinwantha Vesak Mangalyayak Wewa ☸️';
+        greeting.innerHTML = '☸️ Pinwantha Vesak Mangalyayak Wewa! ☸️';
         greeting.style.position = 'fixed';
         greeting.style.top = '80px';
         greeting.style.right = '20px';
