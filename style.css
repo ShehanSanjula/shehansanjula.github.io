@@ -3325,19 +3325,31 @@ div.desc {
 }
 
 .badge-item .gallery {
-  border: 1px solid #ccc;
-  padding: 10px;
-  background: #fff;
-  border-radius: 8px;
-  /* Slight roundness for modernization */
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.25);
+  /* More transparent */
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+  /* Soft premium shadow */
+  backdrop-filter: blur(8px);
+  /* Glass blur */
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 12px;
+  /* Smoother corners */
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  /* Subtle border */
   transition: all 0.3s ease;
+  height: 100%;
+  /* Ensure full height usage */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .badge-item .gallery:hover {
-  border-color: #1EBBA3;
-  /* Theme color */
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.4);
   transform: translateY(-5px);
+  box-shadow: 0 10px 40px 0 rgba(31, 38, 135, 0.2);
 }
 
 .badge-item img {
