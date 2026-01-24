@@ -257,9 +257,9 @@ document.addEventListener("DOMContentLoaded", function () {
         // Header height where the white navigation bar ends
         var headerHeight = 75;
 
-        // 1. Vesak Light String (Redesigned Triple Swag with Explicit Colors)
+        // 1. Vesak Light String (Redesigned Triple Swag with Realistic Bulbs)
         var lightString = document.createElement('img');
-        lightString.src = 'images/vesak_lights.svg?v=4';
+        lightString.src = 'images/vesak_lights.svg?v=5';
         lightString.style.position = 'fixed';
         lightString.style.top = (headerHeight - 20) + 'px';
         lightString.style.left = '0';
@@ -323,20 +323,24 @@ document.addEventListener("DOMContentLoaded", function () {
         scene.id = 'vesak-scene-bottom';
         container.appendChild(scene);
 
-        // 4. Greeting (Positioned like Christmas edition: top 80, right 20)
+        // 4. Greeting (Themed Match: Teal/Dark)
         var greeting = document.createElement('div');
         greeting.innerHTML = '☸️ Pinwantha Vesak Mangalyayak Wewa ☸️';
         greeting.style.position = 'fixed';
         greeting.style.top = '80px';
         greeting.style.right = '20px';
-        greeting.style.color = '#FFF59D';
-        greeting.style.background = 'rgba(80, 20, 20, 0.95)';
+        // Matching theme: Dark background, premium white text, teal accent glow
+        greeting.style.color = '#ffffff';
+        greeting.style.background = 'rgba(10, 10, 10, 0.85)';
+        greeting.style.border = '1px solid rgba(30, 187, 163, 0.3)'; // Teal border hint
         greeting.style.padding = '8px 15px';
         greeting.style.borderRadius = '20px';
-        greeting.style.fontFamily = 'cursive, sans-serif';
-        greeting.style.fontWeight = 'bold';
+        greeting.style.fontFamily = "'Poppins', sans-serif"; // Using site font
+        greeting.style.fontSize = '14px';
+        greeting.style.fontWeight = '500';
         greeting.style.zIndex = '9997';
-        greeting.style.boxShadow = '0 0 15px rgba(255, 213, 79, 0.4)';
+        greeting.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.5)';
+        greeting.style.backdropFilter = 'blur(5px)';
         container.appendChild(greeting);
 
         document.body.appendChild(container);
