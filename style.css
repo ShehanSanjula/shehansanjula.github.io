@@ -3316,8 +3316,8 @@ div.desc {
 }
 
 .badge-item {
-  width: 220px;
-  /* Constrain width to wrap text */
+  width: 180px;
+  /* Reduced width */
   display: flex;
   justify-content: center;
   align-items: center;
