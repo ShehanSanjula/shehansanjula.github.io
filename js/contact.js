@@ -60,7 +60,11 @@ document.getElementById('contact_form').addEventListener('submit', function (e) 
                 form.reset();
             } else {
                 console.log(response);
-                result.innerHTML = '<div class="alert alert-danger">' + json.message + '</div>';
+                let message = json.message;
+                if (!message && json.errors && json.errors.length > 0) {
+                    message = json.errors.map(err => err.message).join('<br>');
+                }
+                result.innerHTML = '<div class="alert alert-danger">' + (message || 'Something went wrong') + '</div>';
             }
         })
         .catch(error => {
