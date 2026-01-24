@@ -257,14 +257,14 @@ document.addEventListener("DOMContentLoaded", function () {
         // Header height where the white navigation bar ends
         var headerHeight = 75;
 
-        // 1. Vesak Light String (Redesigned Triple Swag)
+        // 1. Vesak Light String (Redesigned Triple Swag with Explicit Colors)
         var lightString = document.createElement('img');
-        lightString.src = 'images/vesak_lights.svg?v=3';
+        lightString.src = 'images/vesak_lights.svg?v=4';
         lightString.style.position = 'fixed';
-        lightString.style.top = (headerHeight - 15) + 'px'; // Shallow dips to clear greeting
+        lightString.style.top = (headerHeight - 20) + 'px';
         lightString.style.left = '0';
         lightString.style.width = '100%';
-        lightString.style.height = '65px';
+        lightString.style.height = '70px';
         lightString.style.zIndex = '9996';
         lightString.style.pointerEvents = 'none';
         container.appendChild(lightString);
