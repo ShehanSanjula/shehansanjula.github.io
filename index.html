@@ -822,24 +822,27 @@
                 </div>
                 <div class="col-lg-6">
                     <!--  <form class="form"  id="contact_form">-->
-                    <form action="https://send.pageclip.co/iaPBR0V2hovpuC7xDxq7Z8qoSOSSLJNA" id="contact_form"
-                        method="post">
+                    <form action="https://api.web3forms.com/submit" id="contact_form" method="POST">
+                        <input type="hidden" name="access_key" value="c7c7407a-20ed-489f-a310-2560c66cf8c5">
                         <div class="row">
+                            <div class="col-md-12">
+                                <div id="form_result"></div>
+                            </div>
                             <div class="col-md-6 pt_right">
                                 <div class="form-group"> <input class="form-controller" id="form_name" name="name"
-                                        placeholder="Name" type="text"> </div>
+                                        placeholder="Name" type="text" required> </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group"> <input class="form-controller" id="form_email" name="email"
-                                        placeholder="Email" type="email"> </div>
+                                        placeholder="Email" type="email" required> </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group"> <input class="form-controller" id="form_subject" name="subject"
-                                        placeholder="Subject" type="text"> </div>
+                                        placeholder="Subject" type="text" required> </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group"> <textarea class="form-controller" id="form_message"
-                                        name="message" placeholder="Message"></textarea> </div>
+                                        name="message" placeholder="Message" required></textarea> </div>
                             </div>
                             <div class="col-md-12 text-center">
                                 <button type="submit" class="btn btn-default btn-sumbit"><span>Send</span></button>
@@ -942,6 +945,7 @@
     <script src="js/jquery.appear.js"></script>
     <script src="js/main.js"></script>
     <script src="js/app-animations.js?v=1.34"></script>
+    <script src="js/contact.js"></script>
 </body>
 
 </html>
