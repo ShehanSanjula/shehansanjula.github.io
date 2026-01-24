@@ -1,23 +1,36 @@
-document.getElementById('contact_form').addEventListener('submit', function (e) {
-    e.preventDefault();
+document.getElementById('form_submit_btn').addEventListener('click', function (e) {
+    if (e) e.preventDefault();
 
-    const form = e.target;
+    const form = document.getElementById('contact_form');
+    const result = document.getElementById('form_result');
+    const submitBtn = document.getElementById('form_submit_btn');
+    const originalBtnText = submitBtn.innerHTML;
 
-    // Security: Input Sanitization function to prevent XSS
+    // Security: Input Sanitization function
     const sanitize = (str) => {
         const temp = document.createElement('div');
         temp.textContent = str;
         return temp.innerHTML;
     };
 
-    const name = sanitize(document.getElementById('form_name').value);
-    const email = sanitize(document.getElementById('form_email').value);
-    const subject = sanitize(document.getElementById('form_subject').value);
-    const message = sanitize(document.getElementById('form_message').value);
+    const nameInput = document.getElementById('form_name');
+    const emailInput = document.getElementById('form_email');
+    const subjectInput = document.getElementById('form_subject');
+    const messageInput = document.getElementById('form_message');
+
+    // Basic validation
+    if (!nameInput.value || !emailInput.value || !subjectInput.value || !messageInput.value) {
+        result.innerHTML = '<div class="alert alert-danger">Please fill in all required fields.</div>';
+        return;
+    }
+
+    const name = sanitize(nameInput.value);
+    const email = sanitize(emailInput.value);
+    const subject = sanitize(subjectInput.value);
+    const message = sanitize(messageInput.value);
 
     // Security: Regex Validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const result = document.getElementById('form_result');
 
     if (!emailRegex.test(email)) {
         result.innerHTML = '<div class="alert alert-danger">Please enter a valid email address.</div>';
@@ -25,11 +38,11 @@ document.getElementById('contact_form').addEventListener('submit', function (e) 
     }
 
     if (name.length < 2 || message.length < 5) {
-        result.innerHTML = '<div class="alert alert-danger">Please fill in all fields correctly (Name > 2 chars, Message > 5 chars).</div>';
+        result.innerHTML = '<div class="alert alert-danger">Please fill in all fields correctly to avoid spam.</div>';
         return;
     }
 
-    // Re-pack sanitized data
+    // Prepare Data
     const formData = new FormData();
     formData.append('access_key', 'c7c7407a-20ed-489f-a310-2560c66cf8c5');
     formData.append('name', name);
@@ -37,13 +50,11 @@ document.getElementById('contact_form').addEventListener('submit', function (e) 
     formData.append('subject', subject);
     formData.append('message', message);
 
-    // Include honeypot if present (though hidden in UI)
+    // Honeypot check
     const botcheck = form.querySelector('input[name="botcheck"]');
     if (botcheck && botcheck.checked) {
-        return; // Silent fail for bots
+        return;
     }
-    const submitBtn = form.querySelector('.btn-sumbit');
-    const originalBtnText = submitBtn.innerHTML;
 
     // Show loading state
     submitBtn.innerHTML = '<span>Sending...</span>';
