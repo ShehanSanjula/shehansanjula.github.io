@@ -1,3 +1,20 @@
+# Release Notes: v8.2 - 2026 Stable 🔒
+
+## 🛡️ Security Enhancements
+### Content Security Policy (CSP) Implementation
+- **Strict Header Injection:** Implemented an automated Python script (`.github/scripts/inject_headers.py`) to inject comprehensive CSP meta tags into all HTML files during deployment.
+- **Permissive Mode:** Adopted a permissive yet secure CSP strategy (`default-src 'self' https: data:`) to ensure seamless integration of external widgets (Cloudinary, Credly, etc.) while preventing mixed content attacks.
+- **Referrer-Policy:** Added `strict-origin-when-cross-origin` to enhance user privacy.
+
+### 🤖 CI/CD Automation
+- **GitHub Actions Workflow:** Created a robust deployment pipeline (`security-tags.yml`) that automatically handles security injection and deployment to GitHub Pages.
+
+## ⚡ Performance & Stability
+- **Attempted Optimization:** explored "Lazy Loading" and "Critical CSS" techniques.
+- **Stability First:** Reverted aggressive performance tweaks to maintain 100% visual integrity and stability of the layout.
+
+---
+
 # Release Notes: v8.1 - 2026 Stable 🚀
 
 ## ✨ Key Features & Improvements
