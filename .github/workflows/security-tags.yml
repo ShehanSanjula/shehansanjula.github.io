@@ -1,7 +1,7 @@
 name: Inject Security Headers
 on:
   push:
-    branches: ["main"] # Or your default branch
+    branches: ["master"] # Matches your actual branch
 
 jobs:
   deploy:
