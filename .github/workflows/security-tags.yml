@@ -1,0 +1,26 @@
+name: Inject Security Headers
+on:
+  push:
+    branches: ["main"] # Or your default branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Inject CSP Meta Tag
+        run: |
+          # This finds the <head> tag and appends the meta tag immediately after it
+          # You can customize the 'content' string below
+          find . -name "*.html" -exec sed -i '/<head>/a \  <meta http-equiv="Content-Security-Policy" content="default-src \x27self\x27; script-src \x27self\x27 https://trusted.com;">' {} +
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
