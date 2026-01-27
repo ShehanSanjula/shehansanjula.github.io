@@ -3,21 +3,7 @@ import os
 # Define the security headers
 # Note: Using distinct string concatenation for readability
 csp = (
-    "default-src 'self'; "
-    "script-src 'self' 'unsafe-inline' https://kit.fontawesome.com https://images.dmca.com "
-    "https://static.cloudflareinsights.com https://cdnjs.cloudflare.com https://www.googletagmanager.com "
-    "https://www.clarity.ms https://cdn.jsdelivr.net https://res.cloudinary.com https://*.credly.com "
-    "https://*.youracclaim.com; "
-    "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com "
-    "https://cdn.jsdelivr.net https://kit.fontawesome.com; "
-    "font-src 'self' data: https://fonts.gstatic.com https://cdnjs.cloudflare.com https://kit.fontawesome.com; "
-    "img-src 'self' data: https://res.cloudinary.com https://images.dmca.com https://www.google-analytics.com "
-    "https://*.clarity.ms https://c.bing.com https://cdn.credly.com https://*.youracclaim.com "
-    "https://*.blogspot.com https://drive.google.com; "
-    "media-src 'self' https://res.cloudinary.com; "
-    "connect-src 'self' https://www.google-analytics.com https://*.clarity.ms https://c.bing.com "
-    "https://www.googletagmanager.com https://sentry.io; "
-    "frame-src 'self' https://www.credly.com https://www.youracclaim.com; "
+    "default-src 'self' https: data: blob: 'unsafe-inline' 'unsafe-eval'; "
     "object-src 'none'; "
     "base-uri 'self'"
 )
