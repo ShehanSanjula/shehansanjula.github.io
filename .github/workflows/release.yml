@@ -27,8 +27,11 @@ jobs:
              - **Automatic Seasonal Decorations**:
                - 🎄 **Christmas** (Nov-Dec): Snow, Santa, Tree.
                - 🌞 **New Year** (Mar-Apr): Erabadu Tree, Koha, Butterfly.
-               - ☸️ **Vesak & Poson** (May-Jun): Lanterns, Lotus Scene.
-             - **Optimized UI**: Greeting badge matches website theme (Dark/Teal or Gold).
+               - ☸️ **Vesak** (May): Lanterns, Lotus Scene.
+               - ☸️ **Poson** (Jun): Lanterns, Lotus Scene (with custom Poson greeting title).
+             - **Optimized UI**:
+               - Removed seasonal decorations/animations from mobile versions (displays only on desktop, laptop, and computer screens).
+               - Greeting badge matches website theme (Dark/Teal or Gold).
              - **Documentation**: Updated README badges.
 
              Enjoy the new festive updates! 🎉

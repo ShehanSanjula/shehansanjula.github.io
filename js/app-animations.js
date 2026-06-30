@@ -3,6 +3,9 @@ document.addEventListener("DOMContentLoaded", function () {
     var month = today.getMonth() + 1; // 1=Jan, 12=Dec
     var day = today.getDate();
 
+    // Check if it is a mobile device / screen width <= 768px
+    var isMobile = window.innerWidth <= 768;
+
     // Date Logic
     // Christmas: Nov 1 to Dec 31
     var isChristmas = (month === 11) || (month === 12);
@@ -10,20 +13,34 @@ document.addEventListener("DOMContentLoaded", function () {
     // New Year: March 1 to April 30
     var isNewYear = (month === 3) || (month === 4);
 
-    // Vesak/Poson: May 1 to June 30
-    var isVesak = (month === 5) || (month === 6);
+    // Vesak: May 1 to May 31
+    var isVesak = (month === 5);
+
+    // Poson: June 1 to June 30
+    var isPoson = (month === 6);
 
     // DEMO OVERRIDE: Uncomment to force specific seasons for testing
     // isChristmas = true;
     // isNewYear = true;
     // isVesak = true; 
+    // isPoson = true;
+
+    // Disable all seasonal animations on mobile versions
+    if (isMobile) {
+        isChristmas = false;
+        isNewYear = false;
+        isVesak = false;
+        isPoson = false;
+    }
 
     if (isChristmas) {
         initChristmasAnimation();
     } else if (isNewYear) {
         initNewYearAnimation();
     } else if (isVesak) {
-        initVesakAnimation();
+        initVesakAnimation(false);
+    } else if (isPoson) {
+        initVesakAnimation(true);
     } else {
         initDefaultParticles();
     }
@@ -242,13 +259,13 @@ document.addEventListener("DOMContentLoaded", function () {
         document.head.appendChild(style);
     }
 
-    function initVesakAnimation() {
-        console.log("Initializing Vesak Animation (Lanterns + Bulbs)");
-        addVesakDecorations();
+    function initVesakAnimation(isPosonTheme) {
+        console.log("Initializing " + (isPosonTheme ? "Poson" : "Vesak") + " Animation (Lanterns + Bulbs)");
+        addVesakDecorations(isPosonTheme);
         initDefaultParticles();
     }
 
-    function addVesakDecorations() {
+    function addVesakDecorations(isPosonTheme) {
         if (document.getElementById('vesak-deco')) return;
 
         var container = document.createElement('div');
@@ -315,9 +332,13 @@ document.addEventListener("DOMContentLoaded", function () {
         scene.id = 'vesak-scene-bottom';
         container.appendChild(scene);
 
-        // 4. Greeting (Updated: Gold Text for Vesak, standard Dark BG)
+        // 4. Greeting (Updated: Gold Text for Vesak/Poson, standard Dark BG)
         var greeting = document.createElement('div');
-        greeting.innerHTML = '☸️ Pinwantha Vesak Mangalyayak Wewa! ☸️';
+        if (isPosonTheme) {
+            greeting.innerHTML = '☸️ Pinwantha Poson Mangalyayak Wewa! ☸️';
+        } else {
+            greeting.innerHTML = '☸️ Pinwantha Vesak Mangalyayak Wewa! ☸️';
+        }
         greeting.style.position = 'fixed';
         greeting.style.top = '80px';
         greeting.style.right = '20px';
